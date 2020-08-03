@@ -9,9 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationPage {
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+public class RegistrationPage extends BasePage {
 	WebDriver driver;
-	
+
 	@FindBy(linkText = "Register a new membership")
 	private WebElement registerMember;
 
@@ -38,22 +41,23 @@ public class RegistrationPage {
 
 	public RegistrationPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
-		this.driver=driver;
+		this.driver = driver;
 	}
 
-	
-	public boolean validateRegistraionLink(WebDriver driver) {
+	public boolean validateRegistraionLink(ExtentTest logger) {
+		super.pageLogger().info("validation of Registration Link");
 		try {
 			registerMember.click();
-			System.out.println("Registration Clickable");
+			logger.log(Status.PASS, "Registration Clickable");
 			return true;
 		} catch (Throwable e) {
-			System.out.println("Registration UnClickable");
+			logger.log(Status.FAIL, "Registration UnClickable");
 			return false;
 		}
 	}
 
 	public void EnterName() {
+		registerMember.click();
 		name.sendKeys("ketaki");
 	}
 
@@ -69,66 +73,89 @@ public class RegistrationPage {
 		password.sendKeys("12345");
 	}
 
-	public boolean validateAlertMessage(WebDriver driver) {
+	public boolean validateAlertMessage(ExtentTest logger) {
+		super.pageLogger().info("Enter the new member details and accept alert");
 		try {
 			signinButton.click();
 			Alert al = driver.switchTo().alert();
 			al.accept();
-			System.out.println("Signin successfully and accept alert");
+			logger.log(Status.PASS, "Signin successfully and accept alert");
 			return true;
 		} catch (Throwable e) {
-			System.out.println("Failed to SignIn");
+			logger.log(Status.FAIL, "Failed to SignIn");
 			return false;
 		}
 	}
 
-	public boolean getTitleOfRegistrationPage(WebDriver driver) {
-		if (driver.getTitle().equals("JavaByKiran | Registration Page")) {
-			System.out.println("Title match");
+	public boolean getTitleOfRegistrationPage(ExtentTest logger) {
+		super.pageLogger().info("validation of Registration Page Title");
+		try {
+			registerMember.click();
+			if (driver.getTitle().equals("JavaByKiran | Registration Page")) {
+				logger.log(Status.PASS, "Title match");
+			} else {
+				logger.log(Status.FAIL, "Title mismatch");
+			}
 			return true;
-		} else {
-			System.out.println("Title mismatch");
+		} catch (Throwable e) {
 			return false;
 		}
 	}
 
-	public boolean getTextOfHeading(WebDriver driver) {
-		if (heading.getText().equals("Java By Kiran")) {
-			System.out.println("Heading match");
+	public boolean getTextOfHeading(ExtentTest logger) {
+		super.pageLogger().info("validation of Heading of registration page");
+		try {
+			registerMember.click();
+			if (heading.getText().equals("Java By Kiran")) {
+				logger.log(Status.PASS, "Heading match");
+			} else {
+				logger.log(Status.FAIL, "Heading mismatch");
+			}
 			return true;
-		} else {
-			System.out.println("Heading mismatch");
+		} catch (Throwable e) {
 			return false;
 		}
 	}
 
-	public boolean validateNoOfTextBoxes(WebDriver driver) {
-		List<WebElement> textboxList = driver.findElements(By.tagName("input"));
-		if (textboxList.size() == 4) {
-			System.out.println("Total no of text box is correct");
+	public boolean validateNoOfTextBoxes(ExtentTest logger) {
+		super.pageLogger().info("validation of Total No of Textbox on Registration page");
+		try {
+			registerMember.click();
+			List<WebElement> textboxList = driver.findElements(By.tagName("input"));
+			if (textboxList.size() == 4) {
+				logger.log(Status.PASS, "Total no of text box is correct");
+			} else {
+				logger.log(Status.FAIL, "Total no of text box is Incorrect");
+			}
 			return true;
-		} else {
-			System.out.println("Total no of text box is Incorrect");
+		} catch (Throwable e) {
 			return false;
 		}
 	}
 
-	public boolean validationOfAlreadyMemberLink(WebDriver driver) {
+	public boolean validationOfAlreadyMemberLink(ExtentTest logger) {
+		super.pageLogger().info("validation of I already have a memberhip link");
 		try {
 			alreadyMember.click();
-			System.out.println("Click successfully to I already have a membership");
+			logger.log(Status.PASS, "Click successfully to I already have a membership");
 			return true;
 		} catch (Throwable t) {
-			System.out.println("Unclickable to I already have a membership ");
+			logger.log(Status.FAIL, "Unclickable to I already have a membership ");
 			return false;
 		}
 	}
 
-	public boolean validationOfMembership(WebDriver driver) {
-		if (validationOfAlreadyMemberLink(driver) == true) {
-			return driver.getTitle().equals("JavaByKiran | Log in");
-		} else {
-			System.out.println("Not return to Login page");
+	public boolean validationOfMembership(ExtentTest logger) {
+		super.pageLogger().info("validate if member already exist or not");
+		try {
+			registerMember.click();
+			if (validationOfAlreadyMemberLink(logger) == true) {
+				driver.getTitle().equals("JavaByKiran | Log in");
+			} else {
+				logger.log(Status.FAIL, "Not return to Login page");
+			}
+			return true;
+		} catch (Throwable e) {
 			return false;
 		}
 	}
