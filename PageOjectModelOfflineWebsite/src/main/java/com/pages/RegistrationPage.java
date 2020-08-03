@@ -38,6 +38,7 @@ public class RegistrationPage {
 
 	public RegistrationPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		this.driver=driver;
 	}
 
 	

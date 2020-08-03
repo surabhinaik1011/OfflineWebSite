@@ -130,7 +130,7 @@ public class LoginPage {
 	}
 
 	public boolean checkURL() {
-		if (geturl().equals("file:///C:/Users/user/Desktop/Offline%20Website/Offline%20Website/index.html")) {
+		if (geturl().equals("D:/website/Offline Website/index.html")) {
 			System.out.println("URL is correct");
 			return true;
 		} else {
@@ -178,13 +178,13 @@ public class LoginPage {
 
 	// NavigationBetDashboardAndLogin
 	public void navigationBetDashboardAndLogin() {
-		if (geturl().equals("file:///C:/Users/user/Desktop/Offline%20Website/Offline%20Website/index.html")) {
+		if (geturl().equals("D:/website/Offline Website/index.html")) {
 			typeUserName("kiran@gmail.com");
 			typePassword("123456");
 			loginButton.click();
 			clickLogoutButton();
 
-		} else if (geturl().equals("file:///C:/Users/user/Desktop/Offline%20Website/Offline%20Website/pages/examples/dashboard.html")) {
+		} else if (geturl().equals("D:/website/Offline Website/index.html")) {
 			clickLogoutButton();
 
 		}

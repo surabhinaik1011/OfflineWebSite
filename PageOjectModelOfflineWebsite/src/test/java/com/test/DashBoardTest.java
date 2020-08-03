@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.pages.DashBoardPage;
+import com.pages.DownloadPage;
 import com.pages.LoginPage;
 
 public class DashBoardTest extends TestBase {
@@ -15,7 +16,6 @@ public class DashBoardTest extends TestBase {
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
 		driver=super.launchApplication();
-		//super.launchApplication();
 		lp =new LoginPage(driver);
 
 		dp=lp.NavigateToDashboard();
@@ -67,4 +67,7 @@ public class DashBoardTest extends TestBase {
 		super.testLogger().info("Running checkAllCoursesNames");
 		Assert.assertTrue(dp.verifyCourseNames());
 	}
+	
+	
+	
 }

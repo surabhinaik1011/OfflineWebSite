@@ -302,4 +302,17 @@ public class DashBoardPage  extends BasePage {
 		}
 		driver.switchTo().window(parent_win);
 	}
+	
+	//Ashwini added code for Navigate to DownloadPage
+	
+	@FindBy(xpath = "//span[text()='Downloads']")
+	public WebElement downloads;
+	
+	public DownloadPage navigateToDownloadPage() {
+		DashBoardPage dp=new DashBoardPage(driver);
+		DownloadPage dwp=new DownloadPage(driver);
+		dp.navigateToDashBoardPage(driver);
+		dwp.downloads.click();
+		return new DownloadPage(driver);
+	}
 }

@@ -40,11 +40,6 @@ public class DownloadTest extends TestBase {
 
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
-	/*String URL = readAnyProperty("config.properties", "url");
-		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get(URL);
-		driver.manage().window().maximize();*/
 		driver=super.launchApplication();
 		dp = new DownloadPage(driver);
 		dwp = dp.navigateToDownloadPage();
@@ -52,7 +47,7 @@ public class DownloadTest extends TestBase {
 
 	@AfterMethod
 	public void closeBrowser() {
-		testlogger.log(Status.INFO, "Browser Closed");
+		super.testLogger().info("Browser Closed");
 		super.CloseLaunchApplication();
 	}
 
