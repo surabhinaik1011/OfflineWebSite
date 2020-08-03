@@ -40,12 +40,12 @@ public class DownloadTest extends TestBase {
 
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
-	/*String URL = readAnyProperty();
+	/*String URL = readAnyProperty("config.properties", "url");
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(URL);
 		driver.manage().window().maximize();*/
-		driver = super.launchApplication();
+		driver=super.launchApplication();
 		dp = new DownloadPage(driver);
 		dwp = dp.navigateToDownloadPage();
 	}
@@ -53,7 +53,7 @@ public class DownloadTest extends TestBase {
 	@AfterMethod
 	public void closeBrowser() {
 		testlogger.log(Status.INFO, "Browser Closed");
-		driver.close();
+		super.CloseLaunchApplication();
 	}
 
 	@Test(priority = 1)
@@ -115,5 +115,4 @@ public class DownloadTest extends TestBase {
 		super.passTest("ValidateStartWithVendorName", pageName);
 		Assert.assertTrue(dp.checkVendorStartWith(testlogger));
 	}
-
 }

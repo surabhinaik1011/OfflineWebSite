@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -28,48 +30,25 @@ public class TestBase {
 	public ExtentReports extent;
 	public ExtentTest testlogger;
 	ITestResult result;
-
-	
-		
-//	public String readAnyProperty(String propFileName, String propName) {
-	
-	/*public String readAnyProperty() {
+	Logger logger;
+	String readAnyProperty(String propFileName, String propName) {
 		String val = null;
 		try {
-			fis = new FileInputStream(System.getProperty("user.dir") +"/src/main/resources/config.properties");
+			fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/" + "/config.properties");
 			prop = new Properties();
 			prop.load(fis);
-//			val = prop.getProperty("url");
-			
+			val = prop.getProperty(propName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return val;
-	}*/
+	}
 
 	public WebDriver launchApplication() throws Throwable {
-		
-		fis = new FileInputStream(System.getProperty("user.dir") +"/src/main/resources/config.properties");
-		prop = new Properties();
-		prop.load(fis);
-		
-		String url = null;
-		String browser = null;
-		url = prop.getProperty("url");
-		browser = prop.getProperty("browser");
-		
-		if(browser.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-			driver = new ChromeDriver();
-		}
-		else {
-			// Code For FireFox Driver
-			/*System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-			driver = new ChromeDriver();*/
-		}
-	
-		driver.get(url);
-	//	driver.get(System.getProperty("user.dir"));
+		String URL = readAnyProperty("config.properties", "url");
+		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(URL);
 		driver.manage().window().maximize();
 		return driver;
 	}
@@ -134,5 +113,13 @@ public class TestBase {
 		testlogger.log(Status.INFO, "Browser Closed");
 		driver.close();
 	}
-
+	/*
+	 * Log4j method added by Utkarsh
+	 */
+	public Logger testLogger(){
+		Logger logger = Logger.getLogger(this.getClass());
+	    String path = (System.getProperty("user.dir")+"/log4jTest.properties");
+		    PropertyConfigurator.configure(path);
+		    return logger;
+	}
 }

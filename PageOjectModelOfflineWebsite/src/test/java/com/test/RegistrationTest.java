@@ -1,21 +1,28 @@
 package com.test;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.pages.DownloadPage;
 import com.pages.RegistrationPage;
 
 public class RegistrationTest extends TestBase {
 	
 	RegistrationPage register = null;
 
-	@BeforeSuite
-	public void launchApplications() throws Throwable {		
-		driver = super.launchApplication();
+	
+	@BeforeMethod
+	public void loadUrl() throws Throwable {
+		driver=super.launchApplication();
 		register = new RegistrationPage(driver);
 	}
+	
+
 	
 	@Test(priority = 1)
 	public void checkRegistrationLink() {
@@ -51,7 +58,7 @@ public class RegistrationTest extends TestBase {
 		Assert.assertTrue(register.validationOfMembership(driver));
 	}
 	
-	@AfterSuite
+	@AfterMethod
 	public void closeApplication(){
 		super.CloseLaunchApplication();
 	}

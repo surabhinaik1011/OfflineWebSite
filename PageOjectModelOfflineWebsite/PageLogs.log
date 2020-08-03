@@ -1,0 +1,81 @@
+2020-07-27 16:43:45,886  INFO [main] DashBoardPage:172 - matching >> Php
+2020-07-27 16:46:10,078  INFO [main] DashBoardPage:66 - Entering into verifytitleofpage method
+2020-07-27 16:46:18,774  INFO [main] DashBoardPage:90 - Entering into LogoutLabel method
+2020-07-27 16:46:29,396  INFO [main] DashBoardPage:115 - Entering into VerifyHeader method
+2020-07-27 16:46:37,833  INFO [main] DashBoardPage:133 - Entering into VerifyCourseHEaders method
+2020-07-27 16:46:38,136  INFO [main] DashBoardPage:172 - matching >> Selenium
+2020-07-27 16:46:38,204  INFO [main] DashBoardPage:172 - matching >> Java / J2EE
+2020-07-27 16:46:38,264  INFO [main] DashBoardPage:172 - matching >> Python
+2020-07-27 16:46:38,331  INFO [main] DashBoardPage:172 - matching >> Php
+2020-07-28 11:38:14,639  INFO [main] LoginPage:118 - pagebase logger working
+2020-07-30 19:31:22,758  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:31:22,904  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:32:09,195  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:32:09,219  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:32:09,266  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-07-30 19:32:09,305  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-07-30 19:32:09,331  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-07-30 19:32:09,369  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-07-30 19:32:25,401  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-07-30 19:34:49,119  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:34:49,144  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:34:49,188  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-07-30 19:34:49,229  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-07-30 19:34:49,254  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-07-30 19:34:49,289  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-07-30 19:35:05,289  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-07-30 19:38:01,715  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:38:01,747  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:38:01,795  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-07-30 19:38:01,835  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-07-30 19:38:01,855  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-07-30 19:38:01,900  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-07-30 19:38:17,940  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-07-30 19:42:03,043  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:42:03,068  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:42:03,110  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-07-30 19:42:03,148  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-07-30 19:42:03,437  INFO [main] DashBoardPage:170 - matching >> Selenium
+2020-07-30 19:42:03,499  INFO [main] DashBoardPage:170 - matching >> Java / J2EE
+2020-07-30 19:42:03,559  INFO [main] DashBoardPage:170 - matching >> Python
+2020-07-30 19:42:03,617  INFO [main] DashBoardPage:170 - matching >> Php
+2020-07-30 19:42:03,625  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-07-30 19:42:03,641  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-07-30 19:42:19,712  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-07-30 19:42:19,975  INFO [main] DashBoardPage:273 - matching >> Automation Testing
+2020-07-30 19:42:20,053  INFO [main] DashBoardPage:273 - matching >> Software Development
+2020-07-30 19:42:20,124  INFO [main] DashBoardPage:273 - matching >> Data Science
+2020-07-30 19:42:20,185  INFO [main] DashBoardPage:273 - matching >> Web Development
+2020-07-30 19:48:53,198  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-07-30 19:48:53,219  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-07-30 19:48:53,270  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-07-30 19:48:53,315  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-07-30 19:48:53,587  INFO [main] DashBoardPage:170 - matching >> Selenium
+2020-07-30 19:48:53,645  INFO [main] DashBoardPage:170 - matching >> Java / J2EE
+2020-07-30 19:48:53,700  INFO [main] DashBoardPage:170 - matching >> Python
+2020-07-30 19:48:53,763  INFO [main] DashBoardPage:170 - matching >> Php
+2020-07-30 19:48:53,775  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-07-30 19:48:53,799  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-07-30 19:49:09,742  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-07-30 19:49:09,992  INFO [main] DashBoardPage:273 - matching >> Automation Testing
+2020-07-30 19:49:10,068  INFO [main] DashBoardPage:273 - matching >> Software Development
+2020-07-30 19:49:10,139  INFO [main] DashBoardPage:273 - matching >> Data Science
+2020-07-30 19:49:10,198  INFO [main] DashBoardPage:273 - matching >> Web Development
+2020-08-03 12:49:40,698  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 12:52:30,740  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 13:04:24,760  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 13:04:36,294  INFO [main] DashBoardPage:88 - Entering into LogoutLabel method
+2020-08-03 13:04:47,719  INFO [main] DashBoardPage:113 - Entering into VerifyHeader method
+2020-08-03 13:04:59,464  INFO [main] DashBoardPage:131 - Entering into VerifyCourseHEaders method
+2020-08-03 13:05:11,297  INFO [main] DashBoardPage:192 - Entering into VerifyNumberofCourses method
+2020-08-03 13:05:22,758  INFO [main] DashBoardPage:216 - Entering into VerifyAllCourseslinksClickable method
+2020-08-03 13:05:50,918  INFO [main] DashBoardPage:239 - Entering into VerifyCourseNames method
+2020-08-03 14:25:26,737  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 14:39:01,169  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 15:57:10,538  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 16:07:36,529  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 16:10:18,762  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 16:22:21,617  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 16:26:27,358  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 16:28:24,215  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method
+2020-08-03 17:34:08,394  INFO [main] DashBoardPage:64 - Entering into verifytitleofpage method

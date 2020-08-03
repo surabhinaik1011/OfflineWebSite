@@ -1,0 +1,54 @@
+2020-07-27 16:43:41,632  INFO [main] DashBoardTestCases:40 - navigating to dashboard
+2020-07-27 16:46:00,706  INFO [main] DashBoardTestCases:31 - browser initializing
+2020-07-27 16:46:07,825  INFO [main] DashBoardTestCases:40 - navigating to dashboard
+2020-07-27 16:46:10,234  INFO [main] DashBoardTestCases:31 - browser initializing
+2020-07-27 16:46:17,005  INFO [main] DashBoardTestCases:40 - navigating to dashboard
+2020-07-27 16:46:18,935  INFO [main] DashBoardTestCases:31 - browser initializing
+2020-07-27 16:46:25,666  INFO [main] DashBoardTestCases:40 - navigating to dashboard
+2020-07-27 16:46:29,546  INFO [main] DashBoardTestCases:31 - browser initializing
+2020-07-27 16:46:36,114  INFO [main] DashBoardTestCases:40 - navigating to dashboard
+2020-07-28 11:31:10,372  INFO [main] LoginPageTest:56 - testbase working
+2020-07-28 11:32:19,091  INFO [main] LoginPageTest:56 - testbase working
+2020-07-28 11:35:42,849  INFO [main] LoginPageTest:56 - testbase working
+2020-07-28 11:38:08,403  INFO [main] LoginPageTest:56 - testbase working
+2020-07-30 19:48:53,191  INFO [main] DashBoardTestCases:28 - Running checkTitle
+2020-07-30 19:48:53,219  INFO [main] DashBoardTestCases:34 - Running checkLogoutLabel
+2020-07-30 19:48:53,268  INFO [main] DashBoardTestCases:40 - Running checkPageHeaderText
+2020-07-30 19:48:53,311  INFO [main] DashBoardTestCases:46 - Running checkAllCoursesHeaderText
+2020-07-30 19:48:53,772  INFO [main] DashBoardTestCases:52 - Running checkNumberOfCourses
+2020-07-30 19:48:53,795  INFO [main] DashBoardTestCases:58 - Running checkAllCourseslinksClickable
+2020-07-30 19:49:09,737  INFO [main] DashBoardTestCases:64 - Running checkAllCoursesNames
+2020-08-03 12:49:40,689  INFO [main] DashBoardTestCases:38 - Running checkTitle
+2020-08-03 12:52:30,736  INFO [main] DashBoardTestCases:34 - Running checkTitle
+2020-08-03 13:04:24,757  INFO [main] DashBoardTestCases:34 - Running checkTitle
+2020-08-03 13:04:24,774  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:04:36,292  INFO [main] DashBoardTestCases:40 - Running checkLogoutLabel
+2020-08-03 13:04:36,335  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:04:47,716  INFO [main] DashBoardTestCases:46 - Running checkPageHeaderText
+2020-08-03 13:04:47,758  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:04:59,460  INFO [main] DashBoardTestCases:52 - Running checkAllCoursesHeaderText
+2020-08-03 13:04:59,482  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:05:11,295  INFO [main] DashBoardTestCases:58 - Running checkNumberOfCourses
+2020-08-03 13:05:11,321  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:05:22,754  INFO [main] DashBoardTestCases:64 - Running checkAllCourseslinksClickable
+2020-08-03 13:05:38,681  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 13:05:50,914  INFO [main] DashBoardTestCases:70 - Running checkAllCoursesNames
+2020-08-03 13:05:50,922  INFO [main] DashBoardTestCases:27 - Browser Closed
+2020-08-03 14:25:26,734  INFO [main] DashBoardTestCases:32 - Running checkTitle
+2020-08-03 14:25:26,753  INFO [main] DashBoardTestCases:25 - Browser Closed
+2020-08-03 14:39:01,164  INFO [main] DashBoardTestCases:32 - Running checkTitle
+2020-08-03 14:39:01,218  INFO [main] DashBoardTestCases:25 - Browser Closed
+2020-08-03 15:57:10,531  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 15:57:10,551  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 16:07:36,522  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 16:07:36,539  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 16:10:18,756  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 16:10:18,774  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 16:22:21,617  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 16:22:21,633  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 16:26:27,352  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 16:26:27,372  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 16:28:24,204  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 16:28:24,230  INFO [main] DashBoardTest:25 - Browser Closed
+2020-08-03 17:34:08,385  INFO [main] DashBoardTest:32 - Running checkTitle
+2020-08-03 17:34:08,414  INFO [main] DashBoardTest:25 - Browser Closed
