@@ -81,7 +81,7 @@ public class RegistrationTest extends TestBase {
 
 	@AfterMethod
 	public void closeApplication() {
-		super.testLogger().info("Browser Closed");
+		super.testLoggerLog4j().info("Browser Closed");
 		super.CloseLaunchApplication();
 	}
 

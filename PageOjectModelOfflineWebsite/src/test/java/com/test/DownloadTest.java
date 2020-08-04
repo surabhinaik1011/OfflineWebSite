@@ -47,7 +47,7 @@ public class DownloadTest extends TestBase {
 
 	@AfterMethod
 	public void closeBrowser() {
-		super.testLogger().info("Browser Closed");
+		super.testLoggerLog4j().info("Browser Closed");
 		super.CloseLaunchApplication();
 	}
 

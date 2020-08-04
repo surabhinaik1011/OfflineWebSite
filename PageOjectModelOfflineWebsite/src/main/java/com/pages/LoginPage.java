@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 public class LoginPage extends BasePage {
 	// All WebElements.
 	@FindBy(id = "email")
@@ -43,7 +46,7 @@ public class LoginPage extends BasePage {
 	public static WebDriver driver;
 	Properties prop = null;
 	FileInputStream fis = null;
-	
+
 	public String geturl() {
 		return driver.getCurrentUrl();
 	}
@@ -109,18 +112,19 @@ public class LoginPage extends BasePage {
 			return true;
 		} else
 			super.pageLogger().info("Should navigate to login page from registration page.");
-			System.out.println("Should navigate to login page from registration page.");
+		System.out.println("Should navigate to login page from registration page.");
 		return false;
 	}
 
-	public boolean checkTitle() {
+	public boolean checkTitle(ExtentTest extenttest) {
+		extenttest.log(Status.INFO, "Checking Title..");
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("We are on Login Page!!");
-			System.out.println("We are on Login Page!!");
+			extenttest.log(Status.PASS, "We are on Login Page!!");
 			return true;
 		} else {
 			super.pageLogger().info("We should be on Login Page!!");
-			System.out.println("We should be on Login Page!!");
+			extenttest.log(Status.PASS, "We should be on Login Page!!");
 			return false;
 		}
 	}
@@ -137,14 +141,16 @@ public class LoginPage extends BasePage {
 		}
 	}
 
-	public boolean checkURL() {
+	public boolean checkURL(ExtentTest extenttest) {
 		if (geturl().equals("D:/website/Offline Website/index.html")) {
+			extenttest.log(Status.INFO, "URL is checking...");
 			super.pageLogger().info("URL is correct");
-			System.out.println("URL is correct");
+			extenttest.log(Status.PASS, "URL is correct");
+
 			return true;
 		} else {
 			super.pageLogger().info("Please Enter Valid URL");
-			System.out.println("Please Enter Valid URL");
+			extenttest.log(Status.FAIL, "URL is incorrect");
 			return false;
 		}
 	}
@@ -188,10 +194,10 @@ public class LoginPage extends BasePage {
 		}
 
 	}
-	
+
 	// NavigationBetDashboardAndLogin
 	public void navigationBetDashboardAndLogin() {
-			if (driver.getTitle().equals("JavaByKiran | Log in")){
+		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("Now on login Page.");
 			super.pageLogger().info("Should navigate to Dashboard Page And then click on Logout Button");
 			typeUserName("kiran@gmail.com");

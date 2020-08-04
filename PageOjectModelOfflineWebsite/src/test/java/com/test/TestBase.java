@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.SkipException;
+import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -30,7 +31,16 @@ public class TestBase {
 	public ExtentReports extent;
 	public ExtentTest testlogger;
 	ITestResult result;
+	// Extent Report Variables
+	String extentReprtName = "ExtentReportForOfflineWebSite";
+	String hostName = "Offline Website";
+	String environment = "QA";
+	String uName = "Kiran";
+	String docTitle = "Test results";
+	String reportName = "ProjectsExtentReport ";
+
 	Logger logger;
+
 	String readAnyProperty(String propFileName, String propName) {
 		String val = null;
 		try {
@@ -59,9 +69,8 @@ public class TestBase {
 
 	// Ashwini code started for extent report.
 	// 28 july 2020
-
-	public ExtentReports setReport(String extentReprtName, String hostName, String environment, String uName,
-			String docTitle, String reportName) {
+	@BeforeSuite
+	public ExtentReports setReport() {
 
 		htmlReporter = new ExtentHtmlReporter(
 				System.getProperty("user.dir") + "/test-output/" + extentReprtName + ".html");
@@ -74,6 +83,7 @@ public class TestBase {
 		htmlReporter.config().setDocumentTitle(docTitle);
 		htmlReporter.config().setReportName(reportName);
 		htmlReporter.config().setTheme(Theme.STANDARD);
+
 		return extent;
 	}
 
@@ -81,45 +91,38 @@ public class TestBase {
 		extent.flush();
 	}
 
-	public void passTest(String testName, String pageName) {
-		testlogger = extent.createTest(testName, pageName);
-		Assert.assertTrue(true);
-	}
-
-	public void failTest(String testName, String pageName) {
-		testlogger = extent.createTest(testName, pageName);
-		Assert.assertFalse(false);
-	}
-
-	public void skipTest(String testName) {
-		testlogger = extent.createTest(testName);
-		throw new SkipException("Skipping this test with exception");
-	}
-
-	public void getResult() {
-		if (result.getStatus() == ITestResult.FAILURE) {
-
-			testlogger.log(Status.FAIL, "Test Case Failed is " + result.getName());
-			testlogger.fail(result.getThrowable());
-
-		} else if (result.getStatus() == ITestResult.SKIP) {
-
-			testlogger.log(Status.SKIP, "Test Case Skipped is " + result.getName());
-
-		} else if (result.getStatus() == ITestResult.SUCCESS) {
-
-			testlogger.log(Status.PASS, "Test Case Passed is " + result.getName());
-		}
-		testlogger.log(Status.INFO, "Browser Closed");
-		driver.close();
-	}
+	/*
+	 * public void passTest(String testName, String pageName) { testlogger =
+	 * extent.createTest(testName, pageName); //Assert.assertTrue(true); }
+	 * 
+	 * public void failTest(String testName, String pageName) { testlogger =
+	 * extent.createTest(testName, pageName); //Assert.assertFalse(false); }
+	 * 
+	 * public void skipTest(String testName) { testlogger =
+	 * extent.createTest(testName); throw new
+	 * SkipException("Skipping this test with exception"); }
+	 * 
+	 * public void getResult() { if (result.getStatus() == ITestResult.FAILURE) {
+	 * 
+	 * testlogger.log(Status.FAIL, "Test Case Failed is " + result.getName());
+	 * testlogger.fail(result.getThrowable());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.SKIP) {
+	 * 
+	 * testlogger.log(Status.SKIP, "Test Case Skipped is " + result.getName());
+	 * 
+	 * } else if (result.getStatus() == ITestResult.SUCCESS) {
+	 * 
+	 * testlogger.log(Status.PASS, "Test Case Passed is " + result.getName()); }
+	 * testlogger.log(Status.INFO, "Browser Closed"); driver.close(); }
+	 */
 	/*
 	 * Log4j method added by Utkarsh
 	 */
-	public Logger testLogger(){
+	public Logger testLoggerLog4j() {
 		Logger logger = Logger.getLogger(this.getClass());
-	    String path = (System.getProperty("user.dir")+"/log4jTest.properties");
-		    PropertyConfigurator.configure(path);
-		    return logger;
+		String path = (System.getProperty("user.dir") + "/log4jTest.properties");
+		PropertyConfigurator.configure(path);
+		return logger;
 	}
 }
