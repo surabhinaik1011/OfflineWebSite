@@ -65,6 +65,4 @@ public class LoginPageTest extends TestBase {
 	 * Assert.assertTrue(lp.navigateToLoginFromDashboard()); }
 	 */
 
-	
-
 }
