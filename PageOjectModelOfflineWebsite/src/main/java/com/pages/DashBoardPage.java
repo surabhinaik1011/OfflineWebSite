@@ -12,6 +12,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -57,21 +60,19 @@ public class DashBoardPage  extends BasePage {
 
 	}
 
-	public boolean verifyTitleOfPage() {
-		 //test1.log(Status.PASS,"test pass");
-		//---
+	public boolean verifyTitleOfPage(ExtentTest logger2) {
 		try {
 			super.pageLogger().info("Entering into verifytitleofpage method");
 			if (getTitleofPage().equals("JavaByKiran | Dashboard")) {
-				//test1.log(Status.PASS,"Verified title of page successfully");
+				logger2.log(Status.PASS,"Verified title of page successfully");
 				return true;
 
 			} else {
-				//test1.log(Status.FAIL,"VerifyTitleOfPage fails");
+				logger2.log(Status.FAIL,"VerifyTitleOfPage fails");
 				return false;
 			}
 		} catch (Throwable t) {
-			//test1.log(Status.FATAL,"VerifyTitleOfPage method fails due to exception");
+			logger2.log(Status.FATAL,"VerifyTitleOfPage method fails due to exception");
 			return false;
 			
 		}
@@ -83,22 +84,22 @@ public class DashBoardPage  extends BasePage {
 		return logoutLable.getText();
 	}
 
-	public boolean verifyLogoutLabel() {
+	public boolean verifyLogoutLabel(ExtentTest logger2) {
 		
 		super.pageLogger().info("Entering into LogoutLabel method");
 		try {
 			
 
 			if (getLabelLogout().equals("LOGOUT")) {
-			//	test1.log(Status.PASS,"checkLogoutLabel testcase is passed");
+			     logger2.log(Status.PASS,"checkLogoutLabel testcase is passed");
 				return true;
 
 			} else {
-				//test1.log(Status.FAIL,"checkLogoutLabel testcase is failed");
+			    logger2.log(Status.FAIL,"checkLogoutLabel testcase is failed");
 				return false;
 			}
 		} catch (Throwable t) {
-			//test1.log(Status.FATAL,"Verifylogoutlabel method failed due to exception");
+			logger2.log(Status.FATAL,"Verifylogoutlabel method failed due to exception");
 			return false;
 		}
 		
@@ -109,25 +110,25 @@ public class DashBoardPage  extends BasePage {
 
 	}
 
-	public boolean verifyHeader() {
+	public boolean verifyHeader(ExtentTest logger2) {
 		super.pageLogger().info("Entering into VerifyHeader method");
 
 		//---
 		try {
 			if (getPageHeader().equals("Courses Offered")) {
-				//test1.log(Status.PASS,"checkPageHeaderText testcase is passed");
+				logger2.log(Status.PASS,"checkPageHeaderText testcase is passed");
 				return true;
 			} else {
-				//test1.log(Status.FAIL, "checkPageHeaderText testcase is failed");
+				logger2.log(Status.FAIL, "checkPageHeaderText testcase is failed");
 				return false;
 			}
 		} catch (Throwable t) {
-			//test1.log(Status.FATAL, "verifyHeader method failed due to exception");
+			logger2.log(Status.FATAL, "verifyHeader method failed due to exception");
 			return false;
 		}
 	}
 
-	public boolean verifyCourseHeaders() {
+	public boolean verifyCourseHeaders(ExtentTest logger2) {
 		super.pageLogger().info("Entering into VerifyCourseHEaders method");
 
 		//---
@@ -142,7 +143,6 @@ public class DashBoardPage  extends BasePage {
 			if (sheet.getCell(0, 0).getContents().equals("ExpectedHeaders")) {
 				for (int i = 1; i < rows; i++) {
 					expected.add((sheet.getCell(0, i).getContents()));
-					// System.out.println(expected.get(i));
 				}
 
 				ArrayList<Boolean> flagList = new ArrayList<>();
@@ -151,7 +151,7 @@ public class DashBoardPage  extends BasePage {
 
 				if (expected.size() == 0 && courseHeaders.size() > 0) {
 					super.pageLogger().info("nothing is expected but seen some menu items");
-					//test1.log(Status.FAIL,"checkAllCoursesHeaderText testcase failed");
+					logger2.log(Status.FAIL,"checkAllCoursesHeaderText testcase failed");
 					return false;
 				}
 
@@ -174,45 +174,42 @@ public class DashBoardPage  extends BasePage {
 					}
 				}
 				if (flagList.contains(false)) {
-					//test1.log(Status.FAIL,"checkAllCoursesHeaderText testcase failed");
+					logger2.log(Status.FAIL,"checkAllCoursesHeaderText testcase failed");
 					return false;
 				}else if(!flagList.contains(false)){
-					//test1.log(Status.PASS,"checkAllCoursesHeaderText testcase is pass");
+					logger2.log(Status.PASS,"checkAllCoursesHeaderText testcase is pass");
 				}
 			}
 		} catch (Throwable t) {
-			//test1.log(Status.FATAL,"verifyCourseHeaders method failed due to exception");
+			logger2.log(Status.FATAL,"verifyCourseHeaders method failed due to exception");
 			return false;
 		}
 		return flag;
 	}
 
 
-	public boolean verifyNumberOfCourses() {
+	public boolean verifyNumberOfCourses(ExtentTest logger2) {
 		super.pageLogger().info("Entering into VerifyNumberofCourses method");
-
-		//---
 		try {
-			//List<WebElement> list = driver.findElements(By.xpath("//div//h3"));
 			
 			if (courseHeaders.size() == 4) {
-				//test1.log(Status.PASS,"checkNumberOfCourses testcase is pass");
+				logger2.log(Status.PASS,"checkNumberOfCourses testcase is pass");
 				return true;
 				
 			} else {
-				//test1.log(Status.FAIL,"checkNumberOfCourses testcase is failed");
+				logger2.log(Status.FAIL,"checkNumberOfCourses testcase is failed");
 				super.pageLogger().info("Count of courses is expected is 4 but found "+courseHeaders.size());
 				return false;
 
 			}
 		} catch (Throwable t) {
-		//	test1.log(Status.FATAL,"VerifyNumberOfCourses method fails due to exception");
+		     logger2.log(Status.FATAL,"VerifyNumberOfCourses method fails due to exception");
 			return false;
 		}
 		
 	}
 
-	public boolean verifyAllCourseslinksClickable() {
+	public boolean verifyAllCourseslinksClickable(ExtentTest logger2) {
 		super.pageLogger().info("Entering into VerifyAllCourseslinksClickable method");
         
 		boolean flag = false;
@@ -223,19 +220,19 @@ public class DashBoardPage  extends BasePage {
 				flag=true;
 			}
 		} catch (Throwable t) {
-			//test1.log(Status.FATAL,"VerifyAllCourselinksClickable method fails due to exception");
+			logger2.log(Status.FATAL,"VerifyAllCourselinksClickable method fails due to exception");
 			return false;
 		}if(flag==false){
-			//test1.log(Status.FAIL,"CheckAllCourselinksClickable testcase is failed");
+			logger2.log(Status.FAIL,"CheckAllCourselinksClickable testcase is failed");
 		}else if(flag==true){
 			closeAllWindows();
-			//test1.log(Status.PASS,"checkAllCourseslinksClickable testcase is pass");
+			logger2.log(Status.PASS,"checkAllCourseslinksClickable testcase is pass");
 		}
 		return flag;
 
 	}
 
-	public boolean verifyCourseNames() {
+	public boolean verifyCourseNames(ExtentTest logger2) {
 		super.pageLogger().info("Entering into VerifyCourseNames method");
 
 		boolean flag = true;
@@ -252,13 +249,13 @@ public class DashBoardPage  extends BasePage {
 				ArrayList<Boolean> flagList = new ArrayList<>();
 
 				if (expected.size() == 0 && coursenames.size() > 0) {
-				//	test1.log(Status.FAIL,"checkAllCoursesNames testcase fails");
+				    logger2.log(Status.FAIL,"checkAllCoursesNames testcase fails");
 					super.pageLogger().info("nothing is expected but seen some menu items");
 					return false;
 				}
 
 				if (coursenames.size()!=expected.size()) {
-					//test1.log(Status.FAIL,"checkAllCoursesNames testcase fails");
+					logger2.log(Status.FAIL,"checkAllCoursesNames testcase fails");
 					super.pageLogger().info("count not matching..");
 				}
 
@@ -277,14 +274,14 @@ public class DashBoardPage  extends BasePage {
 					}
 				}
 				if (flagList.contains(false)) {
-				//	test1.log(Status.FAIL,"checkAllCoursesNames testcase fails");
+				     logger2.log(Status.FAIL,"checkAllCoursesNames testcase fails");
 					return false;
 				}else if (!flagList.contains(false)) {
-				//	test1.log(Status.PASS,"checkAllCoursesNames testcase is pass");
+				     logger2.log(Status.PASS,"checkAllCoursesNames testcase is pass");
 		}
 			}
 			}catch (Throwable t) {
-			//	test1.log(Status.FATAL,"verifyAllCoursesNames method fails due to exception");
+			      logger2.log(Status.FATAL,"verifyAllCoursesNames method fails due to exception");
 			return false;
 		}
 		return flag;
