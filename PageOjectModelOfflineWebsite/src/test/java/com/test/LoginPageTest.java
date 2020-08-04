@@ -99,7 +99,7 @@ public class LoginPageTest extends TestBase {
 		lp.NavigateToDashboard();
 		Assert.assertTrue(lp.checkTitleOfDashBoard(testlogger));
 	}
-
+	//
 	@Test(priority = 8)
 	public void checkNavigationBetDashboardAndLogin() {
 		super.testLogger().info("Running checkNavigationBetDashboardAndLogin");
