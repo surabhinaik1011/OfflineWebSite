@@ -104,7 +104,7 @@ public class RegistrationPage extends BasePage {
 
 	public boolean getTextOfHeading(ExtentTest logger) {
 		super.pageLogger().info("validation of Heading of registration page");
-		try {
+		try{
 			registerMember.click();
 			if (heading.getText().equals("Java By Kiran")) {
 				logger.log(Status.PASS, "Heading match");
