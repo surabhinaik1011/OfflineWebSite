@@ -1,21 +1,21 @@
 package com.test;
 
 import java.io.FileInputStream;
-
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.ITestResult;
-import org.testng.SkipException;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
@@ -28,8 +28,8 @@ public class TestBase {
 	// Globle variables for ExtentReport
 
 	public ExtentHtmlReporter htmlReporter;
-	public ExtentReports extent;
-	public ExtentTest testlogger;
+	public static ExtentReports extent;
+	public static ExtentTest testlogger;
 	ITestResult result;
 	// Extent Report Variables
 	String extentReprtName = "ExtentReportForOfflineWebSite";
@@ -70,7 +70,7 @@ public class TestBase {
 	// Ashwini code started for extent report.
 	// 28 july 2020
 	@BeforeSuite
-	public ExtentReports setReport() {
+	public void setReport() {
 
 		htmlReporter = new ExtentHtmlReporter(
 				System.getProperty("user.dir") + "/test-output/" + extentReprtName + ".html");
@@ -84,45 +84,24 @@ public class TestBase {
 		htmlReporter.config().setReportName(reportName);
 		htmlReporter.config().setTheme(Theme.STANDARD);
 
-		return extent;
 	}
 
+	@AfterSuite
 	public void endReport() {
 		extent.flush();
 	}
 
-	/*
-	 * public void passTest(String testName, String pageName) { testlogger =
-	 * extent.createTest(testName, pageName); //Assert.assertTrue(true); }
-	 * 
-	 * public void failTest(String testName, String pageName) { testlogger =
-	 * extent.createTest(testName, pageName); //Assert.assertFalse(false); }
-	 * 
-	 * public void skipTest(String testName) { testlogger =
-	 * extent.createTest(testName); throw new
-	 * SkipException("Skipping this test with exception"); }
-	 * 
-	 * public void getResult() { if (result.getStatus() == ITestResult.FAILURE) {
-	 * 
-	 * testlogger.log(Status.FAIL, "Test Case Failed is " + result.getName());
-	 * testlogger.fail(result.getThrowable());
-	 * 
-	 * } else if (result.getStatus() == ITestResult.SKIP) {
-	 * 
-	 * testlogger.log(Status.SKIP, "Test Case Skipped is " + result.getName());
-	 * 
-	 * } else if (result.getStatus() == ITestResult.SUCCESS) {
-	 * 
-	 * testlogger.log(Status.PASS, "Test Case Passed is " + result.getName()); }
-	 * testlogger.log(Status.INFO, "Browser Closed"); driver.close(); }
-	 */
-	/*
-	 * Log4j method added by Utkarsh
-	 */
-	public Logger testLoggerLog4j() {
-		Logger logger = Logger.getLogger(this.getClass());
-		String path = (System.getProperty("user.dir") + "/log4jTest.properties");
-		PropertyConfigurator.configure(path);
-		return logger;
+	@BeforeTest
+	public void beforeTest1() {
+		testlogger = extent.createTest("ALl Pages", "All Pages Test Cases");
 	}
+
+	@AfterTest
+	public void afterTest() {
+	}
+	@AfterMethod
+	public void closeBrowser() {
+		 CloseLaunchApplication();
+	}
+
 }

@@ -3,6 +3,7 @@ package com.pages;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,7 +44,7 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "//div[text()='Please enter email.']")
 	private WebElement ErrorMsgForInvalidMail;
 
-	public static WebDriver driver;
+	public  WebDriver driver;
 	Properties prop = null;
 	FileInputStream fis = null;
 
@@ -53,8 +54,8 @@ public class LoginPage extends BasePage {
 
 	// constructor
 	public LoginPage(WebDriver driver) {
-		PageFactory.initElements(driver, this);
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	public String typeUserName(String uName) {
@@ -142,17 +143,17 @@ public class LoginPage extends BasePage {
 	}
 
 	public boolean checkURL(ExtentTest extenttest) {
-		if (geturl().equals("D:/website/Offline Website/index.html")) {
+	//	if (geturl().equals("D:/website/Offline Website/index.html")) {
 			extenttest.log(Status.INFO, "URL is checking...");
-			super.pageLogger().info("URL is correct");
+	//		super.pageLogger().info("URL is correct");
 			extenttest.log(Status.PASS, "URL is correct");
 
-			return true;
-		} else {
-			super.pageLogger().info("Please Enter Valid URL");
+	//		return true;
+	//	} else {
+	//		super.pageLogger().info("Please Enter Valid URL");
 			extenttest.log(Status.FAIL, "URL is incorrect");
 			return false;
-		}
+	//	}
 	}
 
 	public boolean checkHeading() {
@@ -211,6 +212,11 @@ public class LoginPage extends BasePage {
 
 		}
 
+	}
+
+	DownloadPage navigateToDownLoapPage() {
+		driver.findElement(By.xpath("/html/body/div/aside/section/ul/li[6]/a/span")).click();
+		return new DownloadPage(driver);
 	}
 
 	public boolean checkErrorMessage() {

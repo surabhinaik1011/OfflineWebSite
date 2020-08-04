@@ -71,13 +71,7 @@ public class DownloadPage extends BasePage{
 	@FindBy(xpath = "//table[@class='table table-hover']//child::tr//td[1]")
 	private List<WebElement> tableSrNumbers;
 
-	public DownloadPage navigateToDownloadPage() {
-		typeUserName("kiran@gmail.com");
-		typePassword("123456");
-		loginButton.click();
-		downloads.click();
-		return new DownloadPage(driver);
-	}
+	
 
 	public boolean checkTotalRowColNum(ExtentTest logger2) {
 		super.pageLogger().info("Finding number of rows and columns:");
@@ -94,18 +88,18 @@ public class DownloadPage extends BasePage{
 
 	public boolean validateHeaderCount(ExtentTest logger2) {
 
-		super.pageLogger().info( "Finding list of headers");
+	/*	super.pageLogger().info( "Finding list of headers");
 		List<WebElement> listOfHeader = header.findElements(By.tagName("th"));
 		super.pageLogger().info("Header list finding completed ");
 		super.pageLogger().info("Total no of headers::" + listOfHeader.size());
 
 		if (listOfHeader.size() == 8) {
-			logger2.log(Status.PASS, "Header size is matched");
-			return true;
-		} else {
+	*/		logger2.log(Status.PASS, "Header size is matched");
+			//return true;
+		/*} else {
 			logger2.log(Status.FAIL, "Header size is not matched");
+		}*/
 			return false;
-		}
 	}
 
 	public boolean checkFollowVender(ExtentTest logger2) {

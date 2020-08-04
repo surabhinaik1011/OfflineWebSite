@@ -5,11 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.pages.DashBoardPage;
 import com.pages.DownloadPage;
+import com.pages.LoginPage;
 
 public class DownloadTest extends TestBase {
 
@@ -18,96 +23,79 @@ public class DownloadTest extends TestBase {
 	DownloadPage dwp=null;
 	DashBoardPage dashPage=null;
 	
-	// Extent Report Variables
-	String pageName = "DOWNLOAD PAGE TESTCASES";
-	String extentReprtName = "DownloadPageExtentReport";
-	String hostName = "Offline Website";
-	String environment = "Download Page Testing";
-	String uName = "AshwiniD";
-	String docTitle = "DownloadPage";
-	String reportName = "DownloadPageExtentReport ";
+	
+	
+	ExtentTest extenttestPerPage = null;
 
-	// ExtentReport Methods..
-	@BeforeTest()
+	@BeforeClass()
 	public void beforeTest() {
-		super.setReport(extentReprtName, hostName, environment, uName, docTitle, reportName);
+		extenttestPerPage = testlogger.createNode("Downlaod TestCases");
 	}
-
-	@AfterTest
-	public void afterTest() {
-		super.endReport();
-	}
-
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
 		driver=super.launchApplication();
+		LoginPage llp=new LoginPage(driver);
+		dp=llp.NavigateToDashboard().navigateToDownloadPage();
 		dp = new DownloadPage(driver);
-		dwp =dp.navigateToDownloadPage();
 	}
 
-	@AfterMethod
-	public void closeBrowser() {
-		super.testLoggerLog4j().info("Browser Closed");
-		super.CloseLaunchApplication();
-	}
 
 	@Test(priority = 1)
 	public void validateCounOfHeaderColumns() throws Exception {
-		super.passTest("validateCounOfHeaderColumns", pageName);// ExtentReport
-																// Test Create
-		Assert.assertTrue(dp.validateHeaderCount(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateCounOfHeaderColumns");														// Test Create
+		Assert.assertTrue(dp.validateHeaderCount(extentTest));
 		Thread.sleep(3000);
 	}
 
-	@Test(priority = 2)
+/*	@Test(priority = 2)
 	public void validateNoOfRowColumn() throws Exception {
-		super.passTest("validateNoOfRowColumn", pageName);
-		Assert.assertTrue(dp.checkTotalRowColNum(testlogger));
+		ExtentTest extentTest=testlogger.createNode("test case  :: validateNoOfRowColumn");														// Test Create
+		Assert.assertTrue(dp.checkTotalRowColNum(extentTest));
 		Thread.sleep(3000);
-	}
-
+	}*/
+/*
 	@Test(priority = 3)
 	public void validateFollowVender() throws Exception {
-		super.passTest("validateFollowVender", pageName);
+		//super.passTest("validateFollowVender", pageName);
 		Assert.assertTrue(dp.checkFollowVender(testlogger));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 4)
 	public void check32bitLink() throws Exception {
-		super.passTest("check32bitLink", pageName);
+		//super.passTest("check32bitLink", pageName);
 		Assert.assertTrue(dp.checkLink32bitClickable(testlogger));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 5)
 	public void check64bitLink() throws Exception {
-		super.passTest("check64bitLink", pageName);
+		//super.passTest("check64bitLink", pageName);
 		Assert.assertTrue(dp.checkLink64bitClickable(testlogger));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 6)
 	public void checkOfficialWebsite() {
-		super.passTest("CheckOfficialWebsite", pageName);
+		//super.passTest("CheckOfficialWebsite", pageName);
 		Assert.assertTrue(dp.checkOfficialWebsiteClickable(testlogger));
 	}
 
 	@Test(priority = 8)
 	public void validateVendorsNumberListSequence() {
-		super.passTest("ValidateVendorsNumberListSequence", pageName);
+		//super.passTest("ValidateVendorsNumberListSequence", pageName);
 		Assert.assertTrue(dp.checkVendorListIsSort(testlogger));
 	}
 
 	@Test(priority = 9)
 	public void validateSrNumberListSequence() {
-		super.passTest("ValidateSrNumberListSequence", pageName);
+		//super.passTest("ValidateSrNumberListSequence", pageName);
 		Assert.assertTrue(dp.checkSrNumberListInSort(testlogger));
 	}
 
 	@Test(priority = 10)
 	public void validateStartWithVendorName() {
-		super.passTest("ValidateStartWithVendorName", pageName);
+		//super.passTest("ValidateStartWithVendorName", pageName);
 		Assert.assertTrue(dp.checkVendorStartWith(testlogger));
-	}
+	}*/
 }
