@@ -102,40 +102,46 @@ public class LoginPage extends BasePage {
 		return new LoginPage(driver);
 	}
 
-	public boolean navigateToLoginFromReg() {
+	public boolean navigateToLoginFromReg(ExtentTest testlogger) {
 		clickOnRegLink();
 		clickOnalreadymemberLink();
 
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("Navigated to login page from registration page.");
 			System.out.println("Navigated to login page from registration page.");
+			testlogger.log(Status.PASS, "Navigated to login page from registration page.");
 			return true;
 		} else
 			super.pageLogger().info("Should navigate to login page from registration page.");
 			System.out.println("Should navigate to login page from registration page.");
+			testlogger.log(Status.FAIL, "Should navigate to login page from registration page.");
 		return false;
 	}
 
-	public boolean checkTitle() {
+	public boolean checkTitle(ExtentTest testlogger) {
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("We are on Login Page!!");
 			System.out.println("We are on Login Page!!");
+			testlogger.log(Status.PASS, "We are on Login Page!!");
 			return true;
 		} else {
 			super.pageLogger().info("We should be on Login Page!!");
 			System.out.println("We should be on Login Page!!");
+			testlogger.log(Status.FAIL, "We should be on Login Page!!");
 			return false;
 		}
 	}
 
-	public boolean checkTitleOfDashBoard() {
+	public boolean checkTitleOfDashBoard(ExtentTest testlogger) {
 		if (driver.getTitle().equals("JavaByKiran | Dashboard")) {
 			super.pageLogger().info("Login successfully-----We are on Dashboard!!");
 			System.out.println("Login successfully-----We are on Dashboard!!");
+			testlogger.log(Status.PASS, "Login successfully-----We are on Dashboard!!");
 			return true;
 		} else {
 			super.pageLogger().info("We Should be on Dashboard!!");
 			System.out.println("We Should be on Dashboard!!");
+			testlogger.log(Status.FAIL, "We Should be on Dashboard!!");
 			return false;
 		}
 	}
@@ -149,46 +155,52 @@ public class LoginPage extends BasePage {
 		} else {
 			super.pageLogger().info("Please Enter Valid URL");
 			System.out.println("Please Enter Valid URL");
-			testlogger.log(Status.FAIL, "URL is correct...Please Enter Valid URL");
+			testlogger.log(Status.FAIL, "URL is incorrect...Please Enter Valid URL");
 			return false;
 		}
 	}
 
-	public boolean checkHeading() {
+	public boolean checkHeading(ExtentTest testlogger) {
 		String actHeading = websiteName.getText();
 		if (actHeading.equals("Java By Kiran")) {
 			super.pageLogger().info("Heading is -Java By Kiran ");
 			System.out.println("Heading is -Java By Kiran ");
+			testlogger.log(Status.PASS, "Heading -Java By Kiran is correct");
 			return true;
 		} else {
 			super.pageLogger().info("Heading is invalid. It should be- Java By Kiran");
 			System.out.println("Heading is invalid. It should be- Java By Kiran");
+			testlogger.log(Status.FAIL, "Heading is invalid. It should be- Java By Kiran");
 			return false;
 		}
 
 	}
 
-	public boolean checkLoginMsg() {
+	public boolean checkLoginMsg(ExtentTest testlogger) {
 		String loginmsg = LoginMsg.getText();
 		if (loginmsg.equals("Sign in to start your session")) {
 			super.pageLogger().info("Login msg- Sign in to start your session is displayed correctly.");
 			System.out.println("Login msg- Sign in to start your session is displayed correctly.");
+			testlogger.log(Status.PASS, "Login msg- Sign in to start your session is displayed correctly.");
 			return true;
 		}
-		super.pageLogger().info("Loginmsg should display as- 'Sign in to start your session'");
-		System.out.println("Loginmsg should display as- 'Sign in to start your session'");
+		super.pageLogger().info("Login msg should display as- 'Sign in to start your session'");
+		System.out.println("Login msg should display as- 'Sign in to start your session'");
+		testlogger.log(Status.FAIL, "Login msg should display as- 'Sign in to start your session'");
 		return false;
 	}
 
-	public boolean navigateToLoginFromDashboard() {
+	public boolean navigateToLoginFromDashboard(ExtentTest testlogger) {
 
 		if (LogoutMsg.getText().equals("Logout successfully")) {
 			super.pageLogger().info("Navigation between login and Dashboard page is proper!");
 			System.out.println("Navigation between login and Dashboard page is proper!");
+			testlogger.log(Status.PASS, "Navigation between login and Dashboard page is proper!");
 			return true;
 		} else {
 			super.pageLogger().info("check navigation between login and Dashboard page!!");
 			System.out.println("check navigation between login and Dashboard page!!");
+			testlogger.log(Status.FAIL, "check navigation between login and Dashboard page!!");
 			return false;
 		}
 
@@ -212,15 +224,17 @@ public class LoginPage extends BasePage {
 
 	}
 
-	public boolean checkErrorMessage() {
+	public boolean checkErrorMessage(ExtentTest testlogger) {
 
 		if (ErrorMsgForInvalidMail.getText().equals("Please enter email.")) {
 			super.pageLogger().info("Invalid login Cred entered.");
 			System.out.println("Invalid login Cred entered.");
+			testlogger.log(Status.PASS, "Invalid login Cred entered.");
 			return true;
 		} else {
 			super.pageLogger().info("Error msg should be displayed as--'Please enter email.'");
 			System.out.println("Error msg should be displayed as--'Please enter email.'");
+			testlogger.log(Status.FAIL, "Error msg should be displayed as--'Please enter email.'");
 			return false;
 		}
 	}

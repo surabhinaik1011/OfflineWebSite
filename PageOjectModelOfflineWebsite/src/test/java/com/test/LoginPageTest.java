@@ -60,28 +60,28 @@ public class LoginPageTest extends TestBase {
 	public void checkTitle() {
 		super.testLogger().info("Running checkTitle");
 		super.passTest("checkTitle", pageName);
-		Assert.assertTrue(lp.checkTitle());
+		Assert.assertTrue(lp.checkTitle(testlogger));
 	}
 
 	@Test(priority = 3)
 	public void checkHeading() {
 		super.testLogger().info("Running checkHeading");
 		super.passTest("checkHeading", pageName);
-		Assert.assertTrue(lp.checkHeading());
+		Assert.assertTrue(lp.checkHeading(testlogger));
 	}
 
 	@Test(priority = 4)
 	public void checkLoginBoxMsg() {
 		super.testLogger().info("Running checkLoginBoxMsg");
 		super.passTest("checkLoginBoxMsg", pageName);
-		Assert.assertTrue(lp.checkLoginMsg());
+		Assert.assertTrue(lp.checkLoginMsg(testlogger));
 	}
 
 	@Test(priority = 5)
 	public void checkNavigationBetRegPageAndLogin() {
 		super.testLogger().info("Running checkNavigationBetRegPageAndLogin");
 		super.passTest("checkNavigationBetRegPageAndLogin", pageName);
-		Assert.assertTrue(lp.navigateToLoginFromReg());
+		Assert.assertTrue(lp.navigateToLoginFromReg(testlogger));
 	}
 
 	@Test(priority = 6)
@@ -89,7 +89,7 @@ public class LoginPageTest extends TestBase {
 		super.testLogger().info("Running validateInvalidLoginCred ");
 		super.passTest("validateInvalidLoginCred", pageName);
 		lp.clickLoginButton();
-		Assert.assertTrue(lp.checkErrorMessage());
+		Assert.assertTrue(lp.checkErrorMessage(testlogger));
 	}
 
 	@Test(priority = 7)
@@ -97,7 +97,7 @@ public class LoginPageTest extends TestBase {
 		super.testLogger().info("Running validateValidLoginCred ");
 		super.passTest("validateValidLoginCred", pageName);
 		lp.NavigateToDashboard();
-		Assert.assertTrue(lp.checkTitleOfDashBoard());
+		Assert.assertTrue(lp.checkTitleOfDashBoard(testlogger));
 	}
 
 	@Test(priority = 8)
@@ -105,13 +105,13 @@ public class LoginPageTest extends TestBase {
 		super.testLogger().info("Running checkNavigationBetDashboardAndLogin");
 		super.passTest("checkNavigationBetDashboardAndLogin", pageName);
 		lp.navigationBetDashboardAndLogin();
-		Assert.assertTrue(lp.navigateToLoginFromDashboard());
+		Assert.assertTrue(lp.navigateToLoginFromDashboard(testlogger));
 	}
 	@AfterMethod
 	public void closeBrowser() {
 		super.CloseLaunchApplication();
 		super.passTest("closeBrowser", pageName);
-		super.testlogger.log(Status.INFO, "Browser Closed");
+		//super.testlogger.log(Status.INFO, "Browser Closed");
 		
 	}
 
