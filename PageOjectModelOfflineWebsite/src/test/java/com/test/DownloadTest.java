@@ -47,55 +47,55 @@ public class DownloadTest extends TestBase {
 		Thread.sleep(3000);
 	}
 
-/*	@Test(priority = 2)
+	@Test(priority = 2)
 	public void validateNoOfRowColumn() throws Exception {
-		ExtentTest extentTest=testlogger.createNode("test case  :: validateNoOfRowColumn");														// Test Create
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateNoOfRowColumn");														// Test Create
 		Assert.assertTrue(dp.checkTotalRowColNum(extentTest));
 		Thread.sleep(3000);
-	}*/
-/*
+	}
+
 	@Test(priority = 3)
 	public void validateFollowVender() throws Exception {
-		//super.passTest("validateFollowVender", pageName);
-		Assert.assertTrue(dp.checkFollowVender(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateFollowVender");
+		Assert.assertTrue(dp.checkFollowVender(extentTest));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 4)
 	public void check32bitLink() throws Exception {
-		//super.passTest("check32bitLink", pageName);
-		Assert.assertTrue(dp.checkLink32bitClickable(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: check32bitLink");
+		Assert.assertTrue(dp.checkLink32bitClickable(extentTest));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 5)
 	public void check64bitLink() throws Exception {
-		//super.passTest("check64bitLink", pageName);
-		Assert.assertTrue(dp.checkLink64bitClickable(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: check64bitLink");
+		Assert.assertTrue(dp.checkLink64bitClickable(extentTest));
 		Thread.sleep(3000);
 	}
 
 	@Test(priority = 6)
 	public void checkOfficialWebsite() {
-		//super.passTest("CheckOfficialWebsite", pageName);
-		Assert.assertTrue(dp.checkOfficialWebsiteClickable(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: checkOfficialWebsite");
+		Assert.assertTrue(dp.checkOfficialWebsiteClickable(extentTest));
 	}
 
 	@Test(priority = 8)
 	public void validateVendorsNumberListSequence() {
-		//super.passTest("ValidateVendorsNumberListSequence", pageName);
-		Assert.assertTrue(dp.checkVendorListIsSort(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateVendorsNumberListSequence");
+		Assert.assertTrue(dp.checkVendorListIsSort(extentTest));
 	}
 
 	@Test(priority = 9)
 	public void validateSrNumberListSequence() {
-		//super.passTest("ValidateSrNumberListSequence", pageName);
-		Assert.assertTrue(dp.checkSrNumberListInSort(testlogger));
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateSrNumberListSequence");
+		Assert.assertTrue(dp.checkSrNumberListInSort(extentTest));
 	}
 
 	@Test(priority = 10)
 	public void validateStartWithVendorName() {
-		//super.passTest("ValidateStartWithVendorName", pageName);
-		Assert.assertTrue(dp.checkVendorStartWith(testlogger));
-	}*/
+		ExtentTest extentTest=extenttestPerPage.createNode("test case  :: validateStartWithVendorName");
+		Assert.assertTrue(dp.checkVendorStartWith(extentTest));
+	}
 }
