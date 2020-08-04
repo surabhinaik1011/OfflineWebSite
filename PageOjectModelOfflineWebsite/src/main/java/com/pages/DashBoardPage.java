@@ -320,9 +320,4 @@ public class DashBoardPage  extends BasePage {
 		downloads.click();
 		return new DownloadPage(driver);
 	}
-	
-	public UserPage navigateDriver()
-	{
-		return new UserPage(driver);
-	}
 }
