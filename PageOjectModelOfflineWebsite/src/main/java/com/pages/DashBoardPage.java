@@ -315,4 +315,9 @@ public class DashBoardPage  extends BasePage {
 		dwp.downloads.click();
 		return new DownloadPage(driver);
 	}
+	
+	public UserPage navigateDriver()
+	{
+		return new UserPage(driver);
+	}
 }
