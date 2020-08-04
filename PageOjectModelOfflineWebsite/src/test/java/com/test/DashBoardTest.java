@@ -23,7 +23,7 @@ public class DashBoardTest extends TestBase {
 	}
 	@AfterMethod
 	public void closeBrowser() {
-		testLoggerLog4j().info( "Browser Closed");
+	//	testLoggerLog4j().info( "Browser Closed");
 		super.CloseLaunchApplication();
 	}
 	// Extent Report Variables
@@ -38,7 +38,7 @@ public class DashBoardTest extends TestBase {
 	// ExtentReport Methods..
 	@BeforeTest()
 	public void beforeTest() {
-		super.setReport(extentReprtName, hostName, environment, uName, docTitle, reportName);
+	//	super.setReport(extentReprtName, hostName, environment, uName, docTitle, reportName);
 	}
 
 	@AfterTest
@@ -46,91 +46,5 @@ public class DashBoardTest extends TestBase {
 		super.endReport();
 	}
 
-
-	@Test(priority = 1)
-	public void checkTitle() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkTitle");
-		Assert.assertTrue(dp.verifyTitleOfPage());
-=======
-		super.passTest("checkTitle", pageName);
-		super.testLogger().info("Running checkTitle");
-		Assert.assertTrue(dp.verifyTitleOfPage(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 2)
-	public void checkLogoutLabel() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkLogoutLabel");
-		Assert.assertTrue(dp.verifyLogoutLabel());
-=======
-		super.passTest("checkLogoutLabel", pageName);
-		super.testLogger().info("Running checkLogoutLabel");
-		Assert.assertTrue(dp.verifyLogoutLabel(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 3)
-	public void checkPageHeaderText() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkPageHeaderText");
-		Assert.assertTrue(dp.verifyHeader());
-=======
-		super.passTest("checkPageHeaderText", pageName);
-		super.testLogger().info("Running checkPageHeaderText");
-		Assert.assertTrue(dp.verifyHeader(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 4)
-	public void checkAllCoursesHeaderText() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkAllCoursesHeaderText");
-		Assert.assertTrue(dp.verifyCourseHeaders());
-=======
-		super.passTest("checkAllCoursesHeaderText", pageName);
-		super.testLogger().info("Running checkAllCoursesHeaderText");
-		Assert.assertTrue(dp.verifyCourseHeaders(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 5)
-	public void checkNumberOfCourses() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkNumberOfCourses");
-		Assert.assertTrue(dp.verifyNumberOfCourses());
-=======
-		super.passTest("checkNumberOfCourses", pageName);
-		super.testLogger().info("Running checkNumberOfCourses");
-		Assert.assertTrue(dp.verifyNumberOfCourses(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 6)
-	public void checkAllCourseslinksClickable() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkAllCourseslinksClickable");
-		Assert.assertTrue(dp.verifyAllCourseslinksClickable());
-=======
-		super.passTest("checkAllCourseslinksClickable", pageName);
-		super.testLogger().info("Running checkAllCourseslinksClickable");
-		Assert.assertTrue(dp.verifyAllCourseslinksClickable(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-
-	@Test(priority = 7)
-	public void checkAllCoursesNames() {
-<<<<<<< HEAD
-		super.testLoggerLog4j().info("Running checkAllCoursesNames");
-		Assert.assertTrue(dp.verifyCourseNames());
-=======
-		super.passTest("checkAllCoursesNames", pageName);
-		super.testLogger().info("Running checkAllCoursesNames");
-		Assert.assertTrue(dp.verifyCourseNames(testlogger));
->>>>>>> branch 'master' of https://github.com/surabhinaik1011/OfflineWebSite
-	}
-	
-	
 	
 }
