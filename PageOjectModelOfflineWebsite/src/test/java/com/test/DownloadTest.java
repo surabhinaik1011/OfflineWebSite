@@ -27,7 +27,7 @@ public class DownloadTest extends TestBase {
 	String docTitle = "DownloadPage";
 	String reportName = "DownloadPageExtentReport ";
 
-	// ExtentReport Methods
+	// ExtentReport Methods..
 	@BeforeTest()
 	public void beforeTest() {
 		super.setReport(extentReprtName, hostName, environment, uName, docTitle, reportName);
