@@ -2,14 +2,13 @@ package com.test;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import com.aventstack.extentreports.Status;
+import com.pages.DashBoardPage;
 import com.pages.DownloadPage;
 
 public class DownloadTest extends TestBase {
@@ -17,7 +16,8 @@ public class DownloadTest extends TestBase {
 	WebDriver driver = null;
 	DownloadPage dp = null;
 	DownloadPage dwp=null;
-
+	DashBoardPage dashPage=null;
+	
 	// Extent Report Variables
 	String pageName = "DOWNLOAD PAGE TESTCASES";
 	String extentReprtName = "DownloadPageExtentReport";
@@ -42,7 +42,7 @@ public class DownloadTest extends TestBase {
 	public void loadUrl() throws Throwable {
 		driver=super.launchApplication();
 		dp = new DownloadPage(driver);
-		dwp = dp.navigateToDownloadPage();
+		dwp =dp.navigateToDownloadPage();
 	}
 
 	@AfterMethod
