@@ -305,7 +305,7 @@ public class DashBoardPage  extends BasePage {
 	
 	/**
 	 * @author Ashwini
-	 * Below code for any user navigate from Dashboard Page to Download Page
+	 * Below code for any user navigate from Dashboard Page to Download Page..
 	 * @return
 	 * 
 	 */
