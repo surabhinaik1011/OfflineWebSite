@@ -17,7 +17,7 @@ import com.pages.LoginPage;
 public class LoginPageTest extends TestBase {
 	
 	LoginPage lp = null;
-
+	
 	// Extent Report Variables
 		String pageName = "Login PAGE TESTCASES";
 		String extentReprtName = "LoginPageExtentReport";
@@ -51,50 +51,60 @@ public class LoginPageTest extends TestBase {
 	
 	@Test(priority = 1)
 	public void checkURL() {
+		super.testLogger().info("Running checkURL");
+	//	super.passTest("checkURL", pageName);
 		Assert.assertTrue(lp.checkURL());
 	}
 
 	@Test(priority = 2)
 	public void checkTitle() {
+		super.testLogger().info("Running checkTitle");
+		
 		Assert.assertTrue(lp.checkTitle());
 	}
 
 	@Test(priority = 3)
 	public void checkHeading() {
+		super.testLogger().info("Running checkHeading");
 		Assert.assertTrue(lp.checkHeading());
 	}
 
 	@Test(priority = 4)
 	public void checkLoginBoxMsg() {
+		super.testLogger().info("Running checkLoginBoxMsg");
 		Assert.assertTrue(lp.checkLoginMsg());
 	}
 
 	@Test(priority = 5)
 	public void checkNavigationBetRegPageAndLogin() {
+		super.testLogger().info("Running checkNavigationBetRegPageAndLogin");
 		Assert.assertTrue(lp.navigateToLoginFromReg());
 	}
 
 	@Test(priority = 6)
 	public void validateInvalidLoginCred() {
+		super.testLogger().info("Running validateInvalidLoginCred ");
 		lp.clickLoginButton();
 		Assert.assertTrue(lp.checkErrorMessage());
 	}
 
 	@Test(priority = 7)
 	public void validateValidLoginCred() {
+		super.testLogger().info("Running validateValidLoginCred ");
 		lp.NavigateToDashboard();
 		Assert.assertTrue(lp.checkTitleOfDashBoard());
 	}
 
 	@Test(priority = 8)
 	public void checkNavigationBetDashboardAndLogin() {
+		super.testLogger().info("Running checkNavigationBetDashboardAndLogin");
 		lp.navigationBetDashboardAndLogin();
 		Assert.assertTrue(lp.navigateToLoginFromDashboard());
 	}
 	@AfterMethod
 	public void closeBrowser() {
-		//testlogger.log(Status.INFO, "Browser Closed");
 		super.CloseLaunchApplication();
+		testlogger.log(Status.INFO, "Browser Closed");
 	}
 
 }

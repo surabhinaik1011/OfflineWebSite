@@ -1,11 +1,14 @@
 package com.pages;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 	// All WebElements.
 	@FindBy(id = "email")
 	private WebElement username;
@@ -38,7 +41,8 @@ public class LoginPage {
 	private WebElement ErrorMsgForInvalidMail;
 
 	public static WebDriver driver;
-
+	Properties prop = null;
+	FileInputStream fis = null;
 	
 	public String geturl() {
 		return driver.getCurrentUrl();
@@ -100,20 +104,22 @@ public class LoginPage {
 		clickOnalreadymemberLink();
 
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
-
+			super.pageLogger().info("Navigated to login page from registration page.");
 			System.out.println("Navigated to login page from registration page.");
 			return true;
 		} else
-
+			super.pageLogger().info("Should navigate to login page from registration page.");
 			System.out.println("Should navigate to login page from registration page.");
 		return false;
 	}
 
 	public boolean checkTitle() {
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
+			super.pageLogger().info("We are on Login Page!!");
 			System.out.println("We are on Login Page!!");
 			return true;
 		} else {
+			super.pageLogger().info("We should be on Login Page!!");
 			System.out.println("We should be on Login Page!!");
 			return false;
 		}
@@ -121,9 +127,11 @@ public class LoginPage {
 
 	public boolean checkTitleOfDashBoard() {
 		if (driver.getTitle().equals("JavaByKiran | Dashboard")) {
+			super.pageLogger().info("Login successfully-----We are on Dashboard!!");
 			System.out.println("Login successfully-----We are on Dashboard!!");
 			return true;
 		} else {
+			super.pageLogger().info("We Should be on Dashboard!!");
 			System.out.println("We Should be on Dashboard!!");
 			return false;
 		}
@@ -131,9 +139,11 @@ public class LoginPage {
 
 	public boolean checkURL() {
 		if (geturl().equals("D:/website/Offline Website/index.html")) {
+			super.pageLogger().info("URL is correct");
 			System.out.println("URL is correct");
 			return true;
 		} else {
+			super.pageLogger().info("Please Enter Valid URL");
 			System.out.println("Please Enter Valid URL");
 			return false;
 		}
@@ -142,11 +152,11 @@ public class LoginPage {
 	public boolean checkHeading() {
 		String actHeading = websiteName.getText();
 		if (actHeading.equals("Java By Kiran")) {
-
+			super.pageLogger().info("Heading is -Java By Kiran ");
 			System.out.println("Heading is -Java By Kiran ");
 			return true;
 		} else {
-
+			super.pageLogger().info("Heading is invalid. It should be- Java By Kiran");
 			System.out.println("Heading is invalid. It should be- Java By Kiran");
 			return false;
 		}
@@ -156,9 +166,11 @@ public class LoginPage {
 	public boolean checkLoginMsg() {
 		String loginmsg = LoginMsg.getText();
 		if (loginmsg.equals("Sign in to start your session")) {
+			super.pageLogger().info("Login msg- Sign in to start your session is displayed correctly.");
 			System.out.println("Login msg- Sign in to start your session is displayed correctly.");
 			return true;
 		}
+		super.pageLogger().info("Loginmsg should display as- 'Sign in to start your session'");
 		System.out.println("Loginmsg should display as- 'Sign in to start your session'");
 		return false;
 	}
@@ -166,25 +178,29 @@ public class LoginPage {
 	public boolean navigateToLoginFromDashboard() {
 
 		if (LogoutMsg.getText().equals("Logout successfully")) {
-
+			super.pageLogger().info("Navigation between login and Dashboard page is proper!");
 			System.out.println("Navigation between login and Dashboard page is proper!");
 			return true;
 		} else {
+			super.pageLogger().info("check navigation between login and Dashboard page!!");
 			System.out.println("check navigation between login and Dashboard page!!");
 			return false;
 		}
 
 	}
-
+	
 	// NavigationBetDashboardAndLogin
 	public void navigationBetDashboardAndLogin() {
-		if (geturl().equals("D:/website/Offline Website/index.html")) {
+			if (driver.getTitle().equals("JavaByKiran | Log in")){
+			super.pageLogger().info("Now on login Page.");
+			super.pageLogger().info("Should navigate to Dashboard Page And then click on Logout Button");
 			typeUserName("kiran@gmail.com");
 			typePassword("123456");
 			loginButton.click();
 			clickLogoutButton();
 
-		} else if (geturl().equals("D:/website/Offline Website/index.html")) {
+		} else if (driver.getTitle().equals("JavaByKiran | Dashboard")) {
+			super.pageLogger().info("click on Logout Button");
 			clickLogoutButton();
 
 		}
@@ -194,10 +210,11 @@ public class LoginPage {
 	public boolean checkErrorMessage() {
 
 		if (ErrorMsgForInvalidMail.getText().equals("Please enter email.")) {
+			super.pageLogger().info("Invalid login Cred entered.");
 			System.out.println("Invalid login Cred entered.");
 			return true;
 		} else {
-
+			super.pageLogger().info("Error msg should be displayed as--'Please enter email.'");
 			System.out.println("Error msg should be displayed as--'Please enter email.'");
 			return false;
 		}
