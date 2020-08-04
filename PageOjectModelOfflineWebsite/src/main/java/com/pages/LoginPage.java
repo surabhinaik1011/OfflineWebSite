@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 public class LoginPage extends BasePage {
 	// All WebElements.
 	@FindBy(id = "email")
@@ -137,14 +140,16 @@ public class LoginPage extends BasePage {
 		}
 	}
 
-	public boolean checkURL() {
+	public boolean checkURL(ExtentTest testlogger) {
 		if (geturl().equals("D:/website/Offline Website/index.html")) {
 			super.pageLogger().info("URL is correct");
 			System.out.println("URL is correct");
+			testlogger.log(Status.PASS, "URL is correct");
 			return true;
 		} else {
 			super.pageLogger().info("Please Enter Valid URL");
 			System.out.println("Please Enter Valid URL");
+			testlogger.log(Status.FAIL, "URL is correct...Please Enter Valid URL");
 			return false;
 		}
 	}
