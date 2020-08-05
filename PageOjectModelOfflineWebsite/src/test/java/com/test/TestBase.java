@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
@@ -103,5 +104,13 @@ public class TestBase {
 	public void closeBrowser() {
 		 CloseLaunchApplication();
 	}
-
+	/*
+	 * Log4j method added by Utkarsh on 4/08/20
+	 */
+	public Logger testcaseLogs(){
+		Logger logger = Logger.getLogger(this.getClass());
+	    String path = (System.getProperty("user.dir")+"/log4jTest.properties");
+		    PropertyConfigurator.configure(path);
+		    return logger;
+	}
 }

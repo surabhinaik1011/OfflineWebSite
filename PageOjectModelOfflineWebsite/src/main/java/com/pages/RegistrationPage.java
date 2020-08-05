@@ -15,6 +15,7 @@ import com.aventstack.extentreports.Status;
 public class RegistrationPage extends BasePage {
 	WebDriver driver;
 
+	//All WebElements.
 	@FindBy(linkText = "Register a new membership")
 	private WebElement registerMember;
 
@@ -39,19 +40,20 @@ public class RegistrationPage extends BasePage {
 	@FindBy(linkText = "I already have a membership")
 	private WebElement alreadyMember;
 
+	//constructor
 	public RegistrationPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
 
-	public boolean validateRegistraionLink(ExtentTest logger) {
+	public boolean validateRegistraionLink(ExtentTest logger2) {
 		super.pageLogger().info("validation of Registration Link");
 		try {
 			registerMember.click();
-			logger.log(Status.PASS, "Registration Clickable");
+			logger2.log(Status.PASS, "Registration Clickable");
 			return true;
 		} catch (Throwable e) {
-			logger.log(Status.FAIL, "Registration UnClickable");
+			logger2.log(Status.FAIL, "Registration UnClickable");
 			return false;
 		}
 	}
@@ -73,28 +75,28 @@ public class RegistrationPage extends BasePage {
 		password.sendKeys("12345");
 	}
 
-	public boolean validateAlertMessage(ExtentTest logger) {
+	public boolean validateAlertMessage(ExtentTest logger2) {
 		super.pageLogger().info("Enter the new member details and accept alert");
 		try {
 			signinButton.click();
 			Alert al = driver.switchTo().alert();
 			al.accept();
-			logger.log(Status.PASS, "Signin successfully and accept alert");
+			logger2.log(Status.PASS, "Signin successfully and accept alert");
 			return true;
 		} catch (Throwable e) {
-			logger.log(Status.FAIL, "Failed to SignIn");
+			logger2.log(Status.FAIL, "Failed to SignIn");
 			return false;
 		}
 	}
 
-	public boolean getTitleOfRegistrationPage(ExtentTest logger) {
+	public boolean getTitleOfRegistrationPage(ExtentTest logger2) {
 		super.pageLogger().info("validation of Registration Page Title");
 		try {
 			registerMember.click();
 			if (driver.getTitle().equals("JavaByKiran | Registration Page")) {
-				logger.log(Status.PASS, "Title match");
+				logger2.log(Status.PASS, "Title match");
 			} else {
-				logger.log(Status.FAIL, "Title mismatch");
+				logger2.log(Status.FAIL, "Title mismatch");
 			}
 			return true;
 		} catch (Throwable e) {
@@ -102,14 +104,14 @@ public class RegistrationPage extends BasePage {
 		}
 	}
 
-	public boolean getTextOfHeading(ExtentTest logger) {
+	public boolean getTextOfHeading(ExtentTest logger2) {
 		super.pageLogger().info("validation of Heading of registration page");
-		try{
+		try {
 			registerMember.click();
 			if (heading.getText().equals("Java By Kiran")) {
-				logger.log(Status.PASS, "Heading match");
+				logger2.log(Status.PASS, "Heading match");
 			} else {
-				logger.log(Status.FAIL, "Heading mismatch");
+				logger2.log(Status.FAIL, "Heading mismatch");
 			}
 			return true;
 		} catch (Throwable e) {
@@ -117,15 +119,15 @@ public class RegistrationPage extends BasePage {
 		}
 	}
 
-	public boolean validateNoOfTextBoxes(ExtentTest logger) {
+	public boolean validateNoOfTextBoxes(ExtentTest logger2) {
 		super.pageLogger().info("validation of Total No of Textbox on Registration page");
 		try {
 			registerMember.click();
 			List<WebElement> textboxList = driver.findElements(By.tagName("input"));
 			if (textboxList.size() == 4) {
-				logger.log(Status.PASS, "Total no of text box is correct");
+				logger2.log(Status.PASS, "Total no of text box is correct");
 			} else {
-				logger.log(Status.FAIL, "Total no of text box is Incorrect");
+				logger2.log(Status.FAIL, "Total no of text box is Incorrect");
 			}
 			return true;
 		} catch (Throwable e) {
@@ -133,26 +135,26 @@ public class RegistrationPage extends BasePage {
 		}
 	}
 
-	public boolean validationOfAlreadyMemberLink(ExtentTest logger) {
+	public boolean validationOfAlreadyMemberLink(ExtentTest logger2) {
 		super.pageLogger().info("validation of I already have a memberhip link");
 		try {
 			alreadyMember.click();
-			logger.log(Status.PASS, "Click successfully to I already have a membership");
+			logger2.log(Status.PASS, "Click successfully to I already have a membership");
 			return true;
 		} catch (Throwable t) {
-			logger.log(Status.FAIL, "Unclickable to I already have a membership ");
+			logger2.log(Status.FAIL, "Unclickable to I already have a membership ");
 			return false;
 		}
 	}
 
-	public boolean validationOfMembership(ExtentTest logger) {
+	public boolean validationOfMembership(ExtentTest logger2) {
 		super.pageLogger().info("validate if member already exist or not");
 		try {
 			registerMember.click();
-			if (validationOfAlreadyMemberLink(logger) == true) {
+			if (validationOfAlreadyMemberLink(logger2) == true) {
 				driver.getTitle().equals("JavaByKiran | Log in");
 			} else {
-				logger.log(Status.FAIL, "Not return to Login page");
+				logger2.log(Status.FAIL, "Not return to Login page");
 			}
 			return true;
 		} catch (Throwable e) {
