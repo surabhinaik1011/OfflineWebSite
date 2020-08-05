@@ -108,10 +108,11 @@ public class LoginPage extends BasePage {
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("Navigated to login page from registration page.");
 			System.out.println("Navigated to login page from registration page.");
+			extenttest.log(Status.PASS, "Navigated to login page from registration page.");
 			return true;
 		} else
 			super.pageLogger().info("Should navigate to login page from registration page.");
-		System.out.println("Should navigate to login page from registration page.");
+			extenttest.log(Status.FAIL, "Should navigate to login page from registration page.");
 		return false;
 	}
 
@@ -123,7 +124,7 @@ public class LoginPage extends BasePage {
 			return true;
 		} else {
 			super.pageLogger().info("We should be on Login Page!!");
-			extenttest.log(Status.PASS, "We should be on Login Page!!");
+			extenttest.log(Status.FAIL, "We should be on Login Page!!");
 			return false;
 		}
 	}

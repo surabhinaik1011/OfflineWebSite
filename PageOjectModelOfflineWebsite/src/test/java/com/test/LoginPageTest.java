@@ -59,7 +59,7 @@ public class LoginPageTest extends TestBase {
 		extenttest.log(Status.PASS, "I am in login page test..checkLoginBoxMsg");
 		Assert.assertTrue(lp.checkLoginMsg(extenttest));
 	}
-
+	//
 	@Test(priority = 5)
 	public void checkNavigationBetRegPageAndLogin() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkNavigationBetRegPageAndLogin");
