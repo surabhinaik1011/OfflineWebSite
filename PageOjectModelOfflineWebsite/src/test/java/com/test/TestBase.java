@@ -40,7 +40,7 @@ public class TestBase {
 	String docTitle = "Test results";
 	String reportName = "ProjectsExtentReport ";
 
-	Logger logger;
+	static Logger logger;
 
 	String readAnyProperty(String propFileName, String propName) {
 		String val = null;
@@ -107,10 +107,10 @@ public class TestBase {
 	/*
 	 * Log4j method added by Utkarsh on 4/08/20
 	 */
-	public Logger testcaseLogs(){
-		Logger logger = Logger.getLogger(this.getClass());
+	@BeforeSuite
+	public void testcaseLogs(){
+		logger = Logger.getLogger(this.getClass());
 	    String path = (System.getProperty("user.dir")+"/log4jTest.properties");
-		    PropertyConfigurator.configure(path);
-		    return logger;
+		PropertyConfigurator.configure(path);
 	}
 }
