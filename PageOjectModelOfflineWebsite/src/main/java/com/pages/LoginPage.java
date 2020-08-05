@@ -2,13 +2,11 @@ package com.pages;
 
 import java.io.FileInputStream;
 import java.util.Properties;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
@@ -103,10 +101,10 @@ public class LoginPage extends BasePage {
 		return new LoginPage(driver);
 	}
 
-	public boolean navigateToLoginFromReg() {
+	public boolean navigateToLoginFromReg(ExtentTest extenttest) {
 		clickOnRegLink();
 		clickOnalreadymemberLink();
-
+		extenttest.log(Status.INFO, "navigateToLoginFromReg..");
 		if (driver.getTitle().equals("JavaByKiran | Log in")) {
 			super.pageLogger().info("Navigated to login page from registration page.");
 			System.out.println("Navigated to login page from registration page.");
@@ -130,7 +128,7 @@ public class LoginPage extends BasePage {
 		}
 	}
 
-	public boolean checkTitleOfDashBoard() {
+	public boolean checkTitleOfDashBoard(ExtentTest testlogger) {
 		if (driver.getTitle().equals("JavaByKiran | Dashboard")) {
 			super.pageLogger().info("Login successfully-----We are on Dashboard!!");
 			System.out.println("Login successfully-----We are on Dashboard!!");
@@ -143,46 +141,53 @@ public class LoginPage extends BasePage {
 	}
 
 	public boolean checkURL(ExtentTest extenttest) {
-	//	if (geturl().equals("D:/website/Offline Website/index.html")) {
 			extenttest.log(Status.INFO, "URL is checking...");
-	//		super.pageLogger().info("URL is correct");
+		if (geturl().equals("D:/website/Offline Website/index.html")) {
+			super.pageLogger().info("URL is correct");
 			extenttest.log(Status.PASS, "URL is correct");
 
-	//		return true;
-	//	} else {
-	//		super.pageLogger().info("Please Enter Valid URL");
+			return true;
+		} else {
+			super.pageLogger().info("Please Enter Valid URL");
 			extenttest.log(Status.FAIL, "URL is incorrect");
 			return false;
-	//	}
+		}
 	}
 
-	public boolean checkHeading() {
+	public boolean checkHeading(ExtentTest extenttest) {
 		String actHeading = websiteName.getText();
 		if (actHeading.equals("Java By Kiran")) {
+			extenttest.log(Status.INFO, "Checking Heading");
 			super.pageLogger().info("Heading is -Java By Kiran ");
 			System.out.println("Heading is -Java By Kiran ");
+			extenttest.log(Status.PASS, "Heading -Java By Kiran is correct");
 			return true;
 		} else {
 			super.pageLogger().info("Heading is invalid. It should be- Java By Kiran");
 			System.out.println("Heading is invalid. It should be- Java By Kiran");
+			extenttest.log(Status.FAIL, "Heading -Java By Kiran is incorrect");
 			return false;
 		}
 
 	}
 
-	public boolean checkLoginMsg() {
+	public boolean checkLoginMsg(ExtentTest extenttest) {
 		String loginmsg = LoginMsg.getText();
 		if (loginmsg.equals("Sign in to start your session")) {
+			extenttest.log(Status.INFO, "Checking LoginMSG");
 			super.pageLogger().info("Login msg- Sign in to start your session is displayed correctly.");
 			System.out.println("Login msg- Sign in to start your session is displayed correctly.");
+			extenttest.log(Status.PASS, "Login msg- Sign in to start your session is displayed correctly.");
 			return true;
+		}else{
+			super.pageLogger().info("Loginmsg should display as- 'Sign in to start your session'");
+			System.out.println("Loginmsg should display as- 'Sign in to start your session'");
+			extenttest.log(Status.FAIL, "Loginmsg should display as- 'Sign in to start your session'");
+			return false;
 		}
-		super.pageLogger().info("Loginmsg should display as- 'Sign in to start your session'");
-		System.out.println("Loginmsg should display as- 'Sign in to start your session'");
-		return false;
 	}
 
-	public boolean navigateToLoginFromDashboard() {
+	public boolean navigateToLoginFromDashboard(ExtentTest testlogger) {
 
 		if (LogoutMsg.getText().equals("Logout successfully")) {
 			super.pageLogger().info("Navigation between login and Dashboard page is proper!");
@@ -219,7 +224,7 @@ public class LoginPage extends BasePage {
 		return new DownloadPage(driver);
 	}
 
-	public boolean checkErrorMessage() {
+	public boolean checkErrorMessage(ExtentTest extenttest) {
 
 		if (ErrorMsgForInvalidMail.getText().equals("Please enter email.")) {
 			super.pageLogger().info("Invalid login Cred entered.");
