@@ -153,6 +153,7 @@ public class RegistrationPage extends BasePage {
 			registerMember.click();
 			if (validationOfAlreadyMemberLink(logger2) == true) {
 				driver.getTitle().equals("JavaByKiran | Log in");
+				logger2.log(Status.PASS, "Member already registered And Return to Login Page");
 			} else {
 				logger2.log(Status.FAIL, "Not return to Login page");
 			}
