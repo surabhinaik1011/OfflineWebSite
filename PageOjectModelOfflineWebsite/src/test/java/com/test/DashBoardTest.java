@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.pages.DashBoardPage;
+import com.pages.DownloadPage;
 import com.pages.LoginPage;
 
 public class DashBoardTest extends TestBase {
@@ -22,9 +23,9 @@ public class DashBoardTest extends TestBase {
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
 		driver=super.launchApplication();
-		lp =new LoginPage(driver);
-
-		dp=lp.NavigateToDashboard();
+		lp = new LoginPage(driver);
+		dp = lp.NavigateToDashboard();
+		dp = new DashBoardPage(driver);
 	}
 	
 	@Test(priority = 1)
