@@ -19,6 +19,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.pages.LoginPage;
 
 public class TestBase {
 
@@ -105,12 +106,23 @@ public class TestBase {
 		 CloseLaunchApplication();
 	}
 	/*
-	 * Log4j method added by Utkarsh on 4/08/20
+	 * Log4j and loadloginpage method added by Utkarsh on 6/08/20
 	 */
-	@BeforeSuite
-	public void testcaseLogs(){
+	public Logger testcaseLogs(){
 		logger = Logger.getLogger(this.getClass());
 	    String path = (System.getProperty("user.dir")+"/log4jTest.properties");
 		PropertyConfigurator.configure(path);
+		return logger;
+	}
+
+	public LoginPage loadLoginpage(){
+		try {
+			driver=launchApplication();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		LoginPage lp=new LoginPage(driver);
+		return lp;
 	}
 }
