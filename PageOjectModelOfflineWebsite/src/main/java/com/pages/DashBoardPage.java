@@ -46,12 +46,12 @@ public class DashBoardPage  extends BasePage {
 	private List<WebElement> coursenames;
 	
 	public DashBoardPage navigateToDashBoardPage(WebDriver driver) {
-		super.pageLogger().info("navigate to Dashboard page method is entered.");
+		pageLogger().info("navigate to Dashboard page method is entered.");
 		driver.findElement(By.id("email")).sendKeys("kiran@gmail.com");
 		driver.findElement(By.id("password")).sendKeys("123456");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		super.pageLogger().info("clicked");
-		super.pageLogger().info("navigate to Dashboard page method is exiting...");
+		pageLogger().info("clicked");
+		pageLogger().info("navigate to Dashboard page method is exiting...");
 		return new DashBoardPage(driver);
 	}
 
@@ -62,7 +62,7 @@ public class DashBoardPage  extends BasePage {
 
 	public boolean verifyTitleOfPage(ExtentTest logger2) {
 		try {
-			super.pageLogger().info("Entering into verifytitleofpage method");
+			pageLogger().info("Entering into verifytitleofpage method");
 			if (getTitleofPage().equals("JavaByKiran | Dashboard")) {
 				logger2.log(Status.PASS,"Verified title of page successfully");
 				return true;
@@ -86,7 +86,7 @@ public class DashBoardPage  extends BasePage {
 
 	public boolean verifyLogoutLabel(ExtentTest logger2) {
 		
-		super.pageLogger().info("Entering into LogoutLabel method");
+		pageLogger().info("Entering into LogoutLabel method");
 		try {
 			
 
@@ -111,7 +111,7 @@ public class DashBoardPage  extends BasePage {
 	}
 
 	public boolean verifyHeader(ExtentTest logger2) {
-		super.pageLogger().info("Entering into VerifyHeader method");
+		pageLogger().info("Entering into VerifyHeader method");
 
 		//---
 		try {
@@ -129,7 +129,7 @@ public class DashBoardPage  extends BasePage {
 	}
 
 	public boolean verifyCourseHeaders(ExtentTest logger2) {
-		super.pageLogger().info("Entering into VerifyCourseHEaders method");
+		pageLogger().info("Entering into VerifyCourseHEaders method");
 
 		//---
 		boolean flag = true;
@@ -150,13 +150,13 @@ public class DashBoardPage  extends BasePage {
 				
 
 				if (expected.size() == 0 && courseHeaders.size() > 0) {
-					super.pageLogger().info("nothing is expected but seen some menu items");
+					pageLogger().info("nothing is expected but seen some menu items");
 					logger2.log(Status.FAIL,"checkAllCoursesHeaderText testcase failed");
 					return false;
 				}
 
 				if (courseHeaders.size() != expected.size()) {
-					super.pageLogger().info("count not matching..");
+					pageLogger().info("count not matching..");
 				}
 
 				for (int i = 0; i < expected.size(); i++) {
@@ -164,13 +164,13 @@ public class DashBoardPage  extends BasePage {
 						flag = courseHeaders.get(i).getText().equals(expected.get(i));/// false//false///false///true
 						flagList.add(flag);
 						if (!flag) {						
-							super.pageLogger().info("THis menu is wrong .. " + expected.get(i)
+							pageLogger().info("THis menu is wrong .. " + expected.get(i)
 									+ " > instead of this it is showing " + courseHeaders.get(i).getText());// Selenium111
 						} else {
-							super.pageLogger().info("matching >> " + courseHeaders.get(i).getText());
+							pageLogger().info("matching >> " + courseHeaders.get(i).getText());
 						}
 					} catch (Throwable t) {
-						super.pageLogger().info("THis is missing from website .. " + expected.get(i));
+						pageLogger().info("THis is missing from website .. " + expected.get(i));
 					}
 				}
 				if (flagList.contains(false)) {
@@ -189,7 +189,7 @@ public class DashBoardPage  extends BasePage {
 
 
 	public boolean verifyNumberOfCourses(ExtentTest logger2) {
-		super.pageLogger().info("Entering into VerifyNumberofCourses method");
+		pageLogger().info("Entering into VerifyNumberofCourses method");
 		try {
 			
 			if (courseHeaders.size() == 4) {
@@ -198,7 +198,7 @@ public class DashBoardPage  extends BasePage {
 				
 			} else {
 				logger2.log(Status.FAIL,"checkNumberOfCourses testcase is failed");
-				super.pageLogger().info("Count of courses is expected is 4 but found "+courseHeaders.size());
+				pageLogger().info("Count of courses is expected is 4 but found "+courseHeaders.size());
 				return false;
 
 			}
@@ -210,7 +210,7 @@ public class DashBoardPage  extends BasePage {
 	}
 
 	public boolean verifyAllCourseslinksClickable(ExtentTest logger2) {
-		super.pageLogger().info("Entering into VerifyAllCourseslinksClickable method");
+		pageLogger().info("Entering into VerifyAllCourseslinksClickable method");
         
 		boolean flag = false;
 		try {
@@ -233,7 +233,7 @@ public class DashBoardPage  extends BasePage {
 	}
 
 	public boolean verifyCourseNames(ExtentTest logger2) {
-		super.pageLogger().info("Entering into VerifyCourseNames method");
+		pageLogger().info("Entering into VerifyCourseNames method");
 
 		boolean flag = true;
 		try {
@@ -250,13 +250,13 @@ public class DashBoardPage  extends BasePage {
 
 				if (expected.size() == 0 && coursenames.size() > 0) {
 				    logger2.log(Status.FAIL,"checkAllCoursesNames testcase fails");
-					super.pageLogger().info("nothing is expected but seen some menu items");
+					pageLogger().info("nothing is expected but seen some menu items");
 					return false;
 				}
 
 				if (coursenames.size()!=expected.size()) {
 					logger2.log(Status.FAIL,"checkAllCoursesNames testcase fails");
-					super.pageLogger().info("count not matching..");
+					pageLogger().info("count not matching..");
 				}
 
 				for (int i = 0; i < expected.size(); i++) {
@@ -264,13 +264,13 @@ public class DashBoardPage  extends BasePage {
 						flag = coursenames.get(i).getText().equals(expected.get(i));/// f//false///false///true
 						flagList.add(flag);
 						if (!flag) {
-							super.pageLogger().info("THis menu is wrong ..expected is " + expected.get(i)
+							pageLogger().info("THis menu is wrong ..expected is " + expected.get(i)
 									+ " > instead of this Actual is.. " + coursenames.get(i).getText());// Selenium111
 						} else {
-							super.pageLogger().info("matching >> " + coursenames.get(i).getText());
+							pageLogger().info("matching >> " + coursenames.get(i).getText());
 						}
 					} catch (Throwable t) {
-						super.pageLogger().info("THis is missing from website .. " + expected.get(i));
+						pageLogger().info("THis is missing from website .. " + expected.get(i));
 					}
 				}
 				if (flagList.contains(false)) {
