@@ -42,7 +42,7 @@ public class RegistrationTest extends TestBase {
 		Assert.assertTrue(register.getTextOfHeading(extentTest));
 	}
 
-	/*@Test(priority = 3)
+	@Test(priority = 3)
 	public void checkTitle() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: checkTitle");
 		extentTest.log(Status.INFO, "I am in Registration page test...checkTitle");
@@ -77,5 +77,5 @@ public class RegistrationTest extends TestBase {
 		logger.info("checkIfMembershipExist");
 		Assert.assertTrue(register.validationOfMembership(extentTest));
 	}
-*/
+
 }
