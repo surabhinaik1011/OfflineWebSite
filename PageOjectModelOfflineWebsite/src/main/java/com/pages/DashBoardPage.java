@@ -311,9 +311,6 @@ public class DashBoardPage  extends BasePage {
 	public WebElement downloads;
 	
 	public DownloadPage navigateToDownloadPage() {
-		//DashBoardPage dashPage=new DashBoardPage(driver);
-		//DownloadPage dwp=new DownloadPage(driver);
-		//dashPage.navigateToDashBoardPage(driver);
 		downloads.click();
 		return new DownloadPage(driver);
 	}

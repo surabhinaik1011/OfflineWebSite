@@ -20,8 +20,9 @@ public class LoginPageTest extends TestBase {
 
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
-		driver = super.launchApplication();
-		lp = new LoginPage(driver);
+		/*driver = super.launchApplication();
+		lp = new LoginPage(driver);*/
+		lp=super.loadLoginpage();
 	}
 
 	ExtentTest extenttestPerPage = null;

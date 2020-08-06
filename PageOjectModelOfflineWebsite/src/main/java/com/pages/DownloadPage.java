@@ -15,8 +15,6 @@ import com.aventstack.extentreports.Status;
 
 public class DownloadPage extends BasePage{
 	WebDriver driver = null;
-	DownloadPage dp = null;
-	ExtentTest test1 = null;
 
 	public DownloadPage(WebDriver driver) {
 		this.driver = driver;

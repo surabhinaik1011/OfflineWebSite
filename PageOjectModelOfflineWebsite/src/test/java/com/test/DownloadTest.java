@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.pages.DashBoardPage;
 import com.pages.DownloadPage;
 import com.pages.LoginPage;
@@ -15,7 +16,6 @@ public class DownloadTest extends TestBase {
 	WebDriver driver = null;
 	DownloadPage dp = null;
 	DownloadPage dwp = null;
-	DashBoardPage dashPage = null;
 	ExtentTest extenttestPerPage = null;
 
 	@BeforeClass()
@@ -25,78 +25,79 @@ public class DownloadTest extends TestBase {
 
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
-		driver = super.launchApplication();
-		LoginPage llp = new LoginPage(driver);
-		dp = llp.NavigateToDashboard().navigateToDownloadPage();
-		dp = new DownloadPage(driver);
+		dp = loadLoginpage().NavigateToDashboard().navigateToDownloadPage();
+		dwp = new DownloadPage(driver);
 	}
 
 	@Test(priority = 1)
-	public void validateCounOfHeaderColumns() throws Exception {
-		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateCounOfHeaderColumns"); // Test
-																											// Create
-		super.testcaseLogs().info("validateCounOfHeaderColumns");
+	public void validateCounOfHeaderColumns() {
+		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateCounOfHeaderColumns");
+		extentTest.info("Validate total numaber of headers:");
+		testcaseLogs().info("validateCounOfHeaderColumns");
 		Assert.assertTrue(dp.validateHeaderCount(extentTest));
-		Thread.sleep(3000);
 	}
 
 	@Test(priority = 2)
-	public void validateNoOfRowColumn() throws Exception {
-		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateNoOfRowColumn"); // Test
-		super.testcaseLogs().info("validateNoOfRowColumn");																								// Create
+	public void validateNoOfRowColumn() {
+		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateNoOfRowColumn");
+		extentTest.info("Validate total numaber of col and rows:");
+		testcaseLogs().info("validateNoOfRowColumn");
 		Assert.assertTrue(dp.checkTotalRowColNum(extentTest));
-		Thread.sleep(3000);
 	}
 
 	@Test(priority = 3)
-	public void validateFollowVender() throws Exception {
+	public void validateFollowVender() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateFollowVender");
-		super.testcaseLogs().info("validateFollowVender");	
+		extentTest.info("Validate following vendor:");
+		testcaseLogs().info("validateFollowVender");
 		Assert.assertTrue(dp.checkFollowVender(extentTest));
-		Thread.sleep(3000);
 	}
 
 	@Test(priority = 4)
-	public void check32bitLink() throws Exception {
+	public void check32bitLink() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: check32bitLink");
-		super.testcaseLogs().info("check32bitLink");	
+		extentTest.info("Validate 32bit link link clickable:");
+		testcaseLogs().info("check32bitLink");
 		Assert.assertTrue(dp.checkLink32bitClickable(extentTest));
-		Thread.sleep(3000);
 	}
 
 	@Test(priority = 5)
-	public void check64bitLink() throws Exception {
+	public void check64bitLink() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: check64bitLink");
-		super.testcaseLogs().info("check64bitLink");	
+		extentTest.log(Status.INFO, "Validate 64bit link link clickable:");
+		testcaseLogs().info("check64bitLink");
 		Assert.assertTrue(dp.checkLink64bitClickable(extentTest));
-		Thread.sleep(3000);
 	}
 
 	@Test(priority = 6)
 	public void checkOfficialWebsite() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: checkOfficialWebsite");
-		super.testcaseLogs().info("checkOfficialWebsite");	
+		extentTest.info("Validate official website link clickable:");
+		testcaseLogs().info("checkOfficialWebsite");
 		Assert.assertTrue(dp.checkOfficialWebsiteClickable(extentTest));
 	}
 
 	@Test(priority = 8)
 	public void validateVendorsNumberListSequence() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateVendorsNumberListSequence");
-		super.testcaseLogs().info("validateVendorsNumberListSequence");	
+		extentTest.info("Validate Name in ascending orderd:");
+		testcaseLogs().info("validateVendorsNumberListSequence");
 		Assert.assertFalse(dp.checkVendorListIsSort(extentTest));
 	}
 
 	@Test(priority = 9)
 	public void validateSrNumberListSequence() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateSrNumberListSequence");
-		super.testcaseLogs().info("validateSrNumberListSequence");	
+		extentTest.info("Validate total numabers in sequence:");
+		testcaseLogs().info("validateSrNumberListSequence");
 		Assert.assertTrue(dp.checkSrNumberListInSort(extentTest));
 	}
 
 	@Test(priority = 10)
 	public void validateStartWithVendorName() {
 		ExtentTest extentTest = extenttestPerPage.createNode("test case  :: validateStartWithVendorName");
-		super.testcaseLogs().info("validateStartWithVendorName");	
+		extentTest.info("Validate vendors name start with Google:");
+		testcaseLogs().info("validateStartWithVendorName");
 		Assert.assertTrue(dp.checkVendorStartWith(extentTest));
 	}
 }
