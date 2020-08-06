@@ -89,10 +89,10 @@ public class DownloadPage extends BasePage{
 
 	public boolean validateHeaderCount(ExtentTest logger2) {
 
-		super.pageLogger().info("Finding list of headers");
+		pageLogger().info("Finding list of headers");
 		List<WebElement> listOfHeader = header.findElements(By.tagName("th"));
-		super.pageLogger().info("Header list finding completed ");
-		super.pageLogger().info("Total no of headers::" + listOfHeader.size());
+		pageLogger().info("Header list finding completed ");
+		pageLogger().info("Total no of headers::" + listOfHeader.size());
 		
 		logger2.log(Status.INFO,"Total no of headers::" + listOfHeader.size());
 		if (listOfHeader.size() == 8) {
@@ -105,13 +105,13 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkFollowVender(ExtentTest logger2) {
-		super.pageLogger().info( "Checking Following Vendor of Selenium ");
+		pageLogger().info( "Checking Following Vendor of Selenium ");
 		String actVendor = tableCell.getText();
-		super.pageLogger().info("Following Vendor of Selenium " + actVendor);
+		pageLogger().info("Following Vendor of Selenium " + actVendor);
 		
 		logger2.log(Status.INFO,"Following Vendor of Selenium::" + actVendor);
 		String expVendor = "Google Chrome";
-		super.pageLogger().info("Expected Following Vendor of Selenium is" + expVendor);
+		pageLogger().info("Expected Following Vendor of Selenium is" + expVendor);
 		
 		logger2.log(Status.INFO,"Expected Following Vendor of Selenium is::" +expVendor);
 		if (actVendor.equals(expVendor)) {
@@ -125,7 +125,7 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkLink32bitClickable(ExtentTest logger2) {
-		super.pageLogger().info("Validate 32bit link click or not");
+		pageLogger().info("Validate 32bit link click or not");
 		try {
 			bit32Link.click();
 			logger2.log(Status.PASS, "32bit link is clickable");
@@ -137,7 +137,7 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkLink64bitClickable(ExtentTest logger2) {
-		super.pageLogger().info("Validate 64bit link click or not");
+		pageLogger().info("Validate 64bit link click or not");
 		try {
 			bit64Link.click();
 			logger2.log(Status.PASS, "64bit link is clickable");
@@ -149,7 +149,7 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkOfficialWebsiteClickable(ExtentTest logger2) {
-		super.pageLogger().info("Official Website link click()...");
+		pageLogger().info("Official Website link click()...");
 		try {
 			officialWebsiteLink.click();
 			logger2.log(Status.PASS, "Official Website link click..");
@@ -161,14 +161,14 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkVendorListIsSort(ExtentTest logger2) {
-		super.pageLogger().info("Validate Is vendor name list sorted");
+		pageLogger().info("Validate Is vendor name list sorted");
 		ArrayList<String> actualWebList = new ArrayList<>();
 		List<WebElement> elementList = tableVendorsList;
-		super.pageLogger().info("Actul list of Vendor Sequence..");
+		pageLogger().info("Actul list of Vendor Sequence..");
 		for (WebElement we : elementList) {
 			actualWebList.add(we.getText());
 		}
-		super.pageLogger().info("Actul list of Vendor Name.." + actualWebList);
+		pageLogger().info("Actul list of Vendor Name.." + actualWebList);
 		logger2.log(Status.INFO,"Actul list of Vendor Name.." + actualWebList);
 		ArrayList<String> sortedList = new ArrayList<>();
 		for (String s : actualWebList) {
@@ -188,15 +188,15 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkSrNumberListInSort(ExtentTest logger2) {
-		super.pageLogger().info("Validate Is Sr. numbers list sorted");
+		pageLogger().info("Validate Is Sr. numbers list sorted");
 		ArrayList<String> actualSrNumList = new ArrayList<>();
 		List<WebElement> elementList = tableSrNumbers;
-		super.pageLogger().info("Actul list of Sr. numbers Sequence..");
+		pageLogger().info("Actul list of Sr. numbers Sequence..");
 		for (WebElement we : elementList) {
 			actualSrNumList.add(we.getText());
 		}
 		logger.debug(actualSrNumList);
-		super.pageLogger().info("Actul list of Sr. numbers.." + actualSrNumList);
+		pageLogger().info("Actul list of Sr. numbers.." + actualSrNumList);
 		logger2.log(Status.INFO,"Actul list of Sr. numbers.." + actualSrNumList);
 		ArrayList<String> sortedList = new ArrayList<>();
 		for (String s : actualSrNumList) {
@@ -214,15 +214,15 @@ public class DownloadPage extends BasePage{
 	}
 
 	public boolean checkVendorStartWith(ExtentTest logger2) {
-		super.pageLogger().info("Validate Is vendor name start with Google");
+		pageLogger().info("Validate Is vendor name start with Google");
 		ArrayList<String> actualVendorList = new ArrayList<>();
 		List<WebElement> elementList = tableVendorsList;
-		super.pageLogger().info("Actul list of Vendors..");
+		pageLogger().info("Actul list of Vendors..");
 		for (WebElement we : elementList) {
 			actualVendorList.add(we.getText());
 		}
 		logger.debug(actualVendorList);
-		super.pageLogger().info("Actul list of Sr. numbers.." + actualVendorList);
+		pageLogger().info("Actul list of Sr. numbers.." + actualVendorList);
 		logger2.log(Status.INFO,"Actul list of Sr. numbers.." + actualVendorList);
 		ArrayList<String> matchList = new ArrayList<>();
 		boolean status = true;
