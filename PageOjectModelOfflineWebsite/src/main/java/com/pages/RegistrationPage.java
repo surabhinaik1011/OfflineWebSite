@@ -47,7 +47,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean validateRegistraionLink(ExtentTest logger2) {
-		super.pageLogger().info("validation of Registration Link");
+		pageLogger().info("validation of Registration Link");
 		try {
 			registerMember.click();
 			logger2.log(Status.PASS, "Registration Clickable");
@@ -76,7 +76,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean validateAlertMessage(ExtentTest logger2) {
-		super.pageLogger().info("Enter the new member details and accept alert");
+		pageLogger().info("Enter the new member details and accept alert");
 		try {
 			signinButton.click();
 			Alert al = driver.switchTo().alert();
@@ -90,7 +90,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean getTitleOfRegistrationPage(ExtentTest logger2) {
-		super.pageLogger().info("validation of Registration Page Title");
+		pageLogger().info("validation of Registration Page Title");
 		try {
 			registerMember.click();
 			if (driver.getTitle().equals("JavaByKiran | Registration Page")) {
@@ -105,7 +105,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean getTextOfHeading(ExtentTest logger2) {
-		super.pageLogger().info("validation of Heading of registration page");
+		pageLogger().info("validation of Heading of registration page");
 		try {
 			registerMember.click();
 			if (heading.getText().equals("Java By Kiran")) {
@@ -120,7 +120,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean validateNoOfTextBoxes(ExtentTest logger2) {
-		super.pageLogger().info("validation of Total No of Textbox on Registration page");
+		pageLogger().info("validation of Total No of Textbox on Registration page");
 		try {
 			registerMember.click();
 			List<WebElement> textboxList = driver.findElements(By.tagName("input"));
@@ -136,7 +136,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean validationOfAlreadyMemberLink(ExtentTest logger2) {
-		super.pageLogger().info("validation of I already have a memberhip link");
+		pageLogger().info("validation of I already have a memberhip link");
 		try {
 			alreadyMember.click();
 			logger2.log(Status.PASS, "Click successfully to I already have a membership");
@@ -148,7 +148,7 @@ public class RegistrationPage extends BasePage {
 	}
 
 	public boolean validationOfMembership(ExtentTest logger2) {
-		super.pageLogger().info("validate if member already exist or not");
+		pageLogger().info("validate if member already exist or not");
 		try {
 			registerMember.click();
 			if (validationOfAlreadyMemberLink(logger2) == true) {
