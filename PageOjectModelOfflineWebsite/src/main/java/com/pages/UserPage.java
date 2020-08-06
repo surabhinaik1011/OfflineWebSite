@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
 public class UserPage extends BasePage {
 
 	public static WebDriver driver;
@@ -89,7 +92,7 @@ public class UserPage extends BasePage {
 		}
 	}
 
-	public String validateAdduser() throws InterruptedException {
+	public boolean validateAdduser(ExtentTest extentTest) throws InterruptedException {
 		super.pageLogger().info("Enter the validateAdduser Method");
 		Thread.sleep(1000);
 		userNames();
@@ -101,40 +104,33 @@ public class UserPage extends BasePage {
 		city(driver);
 		password();
 		submit();
-		System.out.println(driver.switchTo().alert().getText());
+		
 		String sucessString = driver.switchTo().alert().getText();
-		driver.switchTo().alert().accept();
-		super.pageLogger().info("User Add Sucessfully in Table....!!!");
-		return sucessString;
-	}
-
-	public boolean countStateTest() {
-		super.pageLogger().info("Enter the countStateTest Method");
-		cityData = driver.findElements(By.xpath("//select //option"));
-		System.out.println(cityData.size());
-		if (cityData.size() == 5) {
-			super.pageLogger().info("CountStateTest is Valid..");
+		//System.out.println(sucessString);
+		if (sucessString.equalsIgnoreCase("User Added Successfully. You can not see added user.")) {
+			driver.switchTo().alert().accept();
+			super.pageLogger().info("User Add Sucessfully testcase is passed");
+			extentTest.log(Status.PASS, "User Add Sucessfully testcase is passed");
 			return true;
 		} else {
-			super.pageLogger().error("CountStateTest is Valid..");
-			return false;
-		}
-	}
-
-	public boolean validateAddUserButtonEnabled(WebDriver driver) throws InterruptedException {
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//a[contains(@href,'users.html')]")).click();
-		Thread.sleep(4000);
-		WebElement addButton = driver.findElement(By.xpath("//a[contains(@href,'add_user.html')] //button"));
-		if (addButton.isEnabled()) {
-			addButton.click();
-			return true;
-		} else {
+			super.pageLogger().info("User Add Sucessfully testcase is Failed");
+			extentTest.log(Status.FAIL, "User Add Sucessfully testcase is Failed");
 			return false;
 		}
 
 	}
 
+	/*
+	 * public boolean validateAddUserButtonEnabled(WebDriver driver) throws
+	 * InterruptedException { // Thread.sleep(4000);
+	 * //driver.findElement(By.xpath("//a[contains(@href,'users.html')]")).click();
+	 * Thread.sleep(4000); WebElement addButton =
+	 * driver.findElement(By.xpath("//a[contains(@href,'add_user.html')] //button"))
+	 * ; if (addButton.isEnabled()) { addButton.click(); return true; } else {
+	 * return false; }
+	 * 
+	 * }
+	 */
 	public String getnames() {
 		return "mayur talan";
 	}
@@ -155,22 +151,24 @@ public class UserPage extends BasePage {
 		return "1813344";
 	}
 
-	public boolean validateAddUserTitle(WebDriver driver2) throws InterruptedException {
-		Thread.sleep(1000);
+	public boolean validateAddUserTitle(WebDriver driver2, ExtentTest extentTest) throws InterruptedException {
+		Thread.sleep(5000);
 		super.pageLogger().info("Enter the validateAddUserTitle Method");
 		System.out.println(driver.getTitle());
 		if (driver.getTitle().equalsIgnoreCase("JavaByKiran | Add User")) {
 			super.pageLogger().info("Valid the JavaByKiran | Add User Title");
+			extentTest.log(Status.PASS, "Validate AddUser Title test is passed");
 			return true;
 		} else {
-			super.pageLogger().error("Invalid Title in validateAddUserTitle");
+			super.pageLogger().info("InValid Add user");
+			extentTest.log(Status.FAIL, "Validate AddUser Title test is Failed");
 			return false;
 		}
 	}
 
 	List<WebElement> sizeButton = new ArrayList<>();
 
-	public boolean countAddUserTableData() throws InterruptedException {
+	public boolean countAddUserTableData(ExtentTest extentTest) throws InterruptedException {
 		super.pageLogger().info("Enter the countAddUserTableData Method");
 		Cancel();
 		Thread.sleep(2000);
@@ -184,12 +182,29 @@ public class UserPage extends BasePage {
 		}
 		if (count == 5) {
 			super.pageLogger().info("Count AddUserTableData is Valid");
+			extentTest.log(Status.PASS, "Count AddUser TableData is passed");
 			return true;
 		} else {
-			super.pageLogger().error("Count AddUserTableData is InValid");
+			super.pageLogger().info("Count AddUserTableData is Invalid");
+			extentTest.log(Status.FAIL, "Count AddUser TableData is Failed");
 			return false;
 		}
 
+	}
+
+	public boolean countStateTest(ExtentTest extentTest) {
+		super.pageLogger().info("Enter the countStateTest Method");
+		cityData = driver.findElements(By.xpath("//select //option"));
+		System.out.println(cityData.size());
+		if (cityData.size() == 5) {
+			super.pageLogger().info("Count StateTest is Passed");
+			extentTest.log(Status.PASS, "Count StateTest is passed");
+			return true;
+		} else {
+			super.pageLogger().info("Count StateTest is Failed");
+			extentTest.log(Status.FAIL, "Count StateTest is Failed");
+			return false;
+		}
 	}
 
 	/*

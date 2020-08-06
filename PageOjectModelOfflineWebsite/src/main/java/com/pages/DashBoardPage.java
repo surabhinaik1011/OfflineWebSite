@@ -315,8 +315,11 @@ public class DashBoardPage  extends BasePage {
 		return new DownloadPage(driver);
 	}
 	
-	public UserPage navigateDriver()
+	public UserPage navigateDriver() throws InterruptedException
 	{
+		driver.findElement(By.xpath("//a[contains(@href,'users.html')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//a[contains(@href,'add_user.html')] //button")).click();
 		return new UserPage(driver);
 	}
 }
