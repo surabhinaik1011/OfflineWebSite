@@ -8,7 +8,7 @@
 			<class name="com.test.DashBoardTest" />
 			<class name="com.test.UserTest" />
 			<class name="com.test.DownloadTest" />
-
+			<!-- <class name="com.test.LoginPageTest" /> -->
 			<!-- <class name="com.test.DashBoardTest"/> <class name="com.test.DownloadTest"/> -->
 		</classes>
 	</test> <!-- Test -->
