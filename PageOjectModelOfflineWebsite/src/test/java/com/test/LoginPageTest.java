@@ -1,15 +1,11 @@
 package com.test;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import com.pages.LoginPage;
 
 public class LoginPageTest extends TestBase {
@@ -20,9 +16,8 @@ public class LoginPageTest extends TestBase {
 
 	@BeforeMethod
 	public void loadUrl() throws Throwable {
-		/*driver = super.launchApplication();
-		lp = new LoginPage(driver);*/
-		lp=super.loadLoginpage();
+		loadLoginpage();
+		lp = new LoginPage(driver);
 	}
 
 	ExtentTest extenttestPerPage = null;
@@ -35,7 +30,8 @@ public class LoginPageTest extends TestBase {
 	@Test(priority = 1)
 	public void checkURL() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkUrl");
-		extenttest.log(Status.PASS, "I am in login page test..checkURL");
+		extenttest.info("I am in login page test..checkURL");
+		testcaseLogs().info("checkURL");
 		Assert.assertTrue(lp.checkURL(extenttest));
 	}
 
@@ -43,35 +39,40 @@ public class LoginPageTest extends TestBase {
 
 	public void checkTitle() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkTitle");
-		extenttest.log(Status.PASS, "I am in login page test..checkTitle");
+		extenttest.info("I am in login page test..checkTitle");
+		testcaseLogs().info("checkTitle");
 		Assert.assertTrue(lp.checkTitle(extenttest));
 	}
 
 	@Test(priority = 3)
 	public void checkHeading() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkHeading");
-		extenttest.log(Status.PASS, "I am in login page test..checkHeading");
+		extenttest.info("I am in login page test..checkHeading");
+		testcaseLogs().info("checkHeading");
 		Assert.assertTrue(lp.checkHeading(extenttest));
 	}
 
 	@Test(priority = 4)
 	public void checkLoginBoxMsg() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkLoginBoxMsg");
-		extenttest.log(Status.PASS, "I am in login page test..checkLoginBoxMsg");
+		extenttest.info("I am in login page test..checkLoginBoxMsg");
+		testcaseLogs().info("checkLoginBoxMsg");
 		Assert.assertTrue(lp.checkLoginMsg(extenttest));
 	}
-	//
+
 	@Test(priority = 5)
 	public void checkNavigationBetRegPageAndLogin() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkNavigationBetRegPageAndLogin");
-		extenttest.log(Status.PASS, "I am in login page test..checkNavigationBetRegPageAndLogin");
+		extenttest.info("I am in login page test..checkNavigationBetRegPageAndLogin");
+		testcaseLogs().info("checkNavigationBetRegPageAndLogin");
 		Assert.assertTrue(lp.navigateToLoginFromReg(extenttest));
 	}
 
 	@Test(priority = 6)
 	public void validateInvalidLoginCred() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: validateInvalidLoginCred");
-		extenttest.log(Status.PASS, "I am in login page test..validateInvalidLoginCred");
+		extenttest.info("I am in login page test..validateInvalidLoginCred");
+		testcaseLogs().info("validateInvalidLoginCred");
 		lp.clickLoginButton();
 		Assert.assertTrue(lp.checkErrorMessage(extenttest));
 	}
@@ -79,17 +80,19 @@ public class LoginPageTest extends TestBase {
 	@Test(priority = 7)
 	public void validateValidLoginCred() {
 		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: validateValidLoginCred");
-		extenttest.log(Status.PASS, "I am in login page test..validateValidLoginCred");
+		extenttest.info("I am in login page test..validateValidLoginCred");
+		testcaseLogs().info("validateValidLoginCred");
 		lp.NavigateToDashboard();
-		Assert.assertTrue(lp.checkTitleOfDashBoard(testlogger));
+		Assert.assertTrue(lp.checkTitleOfDashBoard(extenttest));
 	}
 
 	@Test(priority = 8)
 	public void checkNavigationBetDashboardAndLogin() {
-		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: validateValidLoginCred");
-		extenttest.log(Status.PASS, "I am in login page test..validateValidLoginCred");
-		lp.navigationBetDashboardAndLogin();
-		Assert.assertTrue(lp.navigateToLoginFromDashboard(testlogger));
+		ExtentTest extenttest = extenttestPerPage.createNode("test case  :: checkNavigationBetDashboardAndLogin");
+		extenttest.info("I am in login page test..checkNavigationBetDashboardAndLogin");
+		testcaseLogs().info("checkNavigationBetDashboardAndLogin");
+		lp.navigationBetDashboardAndLogin(extenttest);
+		Assert.assertTrue(lp.navigateToLoginFromDashboard(extenttest));
 	}
 
 }
